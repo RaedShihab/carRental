@@ -6,6 +6,13 @@ app.use(bodyparser.urlencoded({
   extended: true
 }));
 
+const db = require('./database.js')
+// Test Database 
+db.authenticate()
+.then(()=> console.log('DataBase connected...'))
+.catch(err => console.log('Error: '+ err))
+
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
