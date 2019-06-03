@@ -20,12 +20,15 @@ app.use(function(req, res, next) {
     next();
   });
 // app.use(express.static('public'))
+// User Routes
+app.use('/user', require('./routes/userRoute.js'))
 
 app.post("/test", (req,res)=>{
-    console.log(req.body.any)
+    console.log('kkk',req.body.any)
     const front = req.body
     res.send(front)
   });
+
 
   app.get("/api/courses", (req,res)=>{
     res.send([1,2,55555])
