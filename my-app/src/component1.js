@@ -71,25 +71,54 @@ class Com1 extends React.Component {
     render(){
       return (
         
-        <div>
-            <input type='text' value={this.state.firstname}  placeholder="First Name"
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-6 mt-5 mx-auto'>
+              <h1 className='h3 mb-3font-weight-normal'>Please Signup</h1>
+              <div className='form-group'>
+                <label htmlFor='first_name'>First Name</label>
+              <input className='form-control'
+             type='text' value={this.state.firstname}  placeholder="First Name"
             onChange={this.handelChangefirstname.bind(this)}
             />
-            <input type='text' value={this.state.lastname}  placeholder="Last Name"
+              </div>
+            <div className='form-group'>
+            <label htmlFor='last_name'>Last Name</label>
+            <input className='form-control'
+             type='text' value={this.state.lastname}  placeholder="Last Name"
             onChange={this.handelChangelastname.bind(this)}
             />
-            <input type='text' value={this.state.password}  placeholder="Password"
+            </div>
+            <div  className='form-group'>
+            <label htmlFor='password'>Passwords</label>
+            <input className='form-control'
+             type='password' value={this.state.password}  placeholder="Password"
             onChange={this.handelChangepassword.bind(this)}
             />
-            <input type='text' value={this.state.email}  placeholder="Email"
+            </div>
+            <div className='form-group'>
+            <label htmlFor='first_name'>Email Adress</label>
+            <input className='form-control'
+             type='email' value={this.state.email}  placeholder="Email"
             onChange={this.handelChangeemail.bind(this)}
             />
-            <input type='text' value={this.state.phonenumber}  placeholder="Phone Number"
+            </div>
+            <div className='form-group'>
+            <label htmlFor='phone_number'>Phone Number</label>
+            <input className='form-control'
+             type='number' value={this.state.phonenumber}  placeholder="Phone Number"
             onChange={this.handelChangephone.bind(this)}
             />
+            </div> 
+            
            
-           <button type='submit' onClick={this.sendToServer.bind(this)} >submit</button>
+           <button className='btn btn-g btn-primary btn-block'
+            type='submit' onClick={this.sendToServer.bind(this)} >Signup</button>
+
           </div>
+          </div>
+          </div>
+          
       );
       }
     }

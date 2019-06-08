@@ -47,8 +47,8 @@ class Com2 extends React.Component {
     render(){
       return (
         
-        <div className='container'>
-          <div className='col-md-6'>
+        <div className='container'> 
+          <div className='col-md-6 mt-5 mx-auto'>
           <h1 className="h3 mb-3font-weight-normal">Please Sign In</h1>
           <div className='form-group'>
           <input className='form-control'
@@ -57,12 +57,12 @@ class Com2 extends React.Component {
           </div>
           </div>
           
-          <div className='col-md-6'>
+          
         <div className='form-group'>
         <input className='form-control' 
         type='text' value={this.state.password}  placeholder="Password"
             onChange={this.handelChangepassword.bind(this)} />
-        </div>
+       
         </div>
            
 
