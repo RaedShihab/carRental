@@ -1,14 +1,14 @@
 const { db, Sequelize } = require('../database');
 
-const User = db.define('user', {
-    name: {
-        type: Sequelize.STRING
-    },
-    lastname: {
-        type: Sequelize.STRING
-    }
+// const User = db.define('user', {
+//     name: {
+//         type: Sequelize.STRING
+//     },
+//     lastname: {
+//         type: Sequelize.STRING
+//     }
 
-})
+// })
 // Register Model
 const Ragister = db.define('ragister', {
     firstname: {
@@ -30,4 +30,4 @@ const Ragister = db.define('ragister', {
 })
 
 module.exports = Ragister;
-module.exports = User;
+// module.exports = User;

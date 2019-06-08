@@ -7,5 +7,6 @@ const Sequelize = require('sequelize');
   db.sync({ force: false, logging: false  }).then(() => {
     console.log(`Database & tables created!`)
 });
+
 module.exports.db= db;
 module.exports.Sequelize= Sequelize;

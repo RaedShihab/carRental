@@ -1,14 +1,9 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const cors = require("cors");
 
-// const cors = require('cors');
 // const db =require("./database");
+
 const app = express();
-// const exphbs = require('express-handlebars') 
 const bodyparser = require('body-parser')
-//  const path = require('path')
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({
   extended: true
@@ -25,20 +20,7 @@ app.use('/user', require('./routes/userRoute.js'))
   const port = process.env.PORT || 3001;
   app.listen(port, ()=> console.log(`listining on port ${port}`))
 
-// add new user: 
-app.post('/signup', function(req, res) {
-  const username = req.body.username;
-  const password = req.body.password;
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  User.create({username: username, password: hashedPassword}).then(function(){
-      return res.status(HTTP_CREATED).send('Sign up successful');
-  }).catch(function(err){
-      if(err.name === "SequelizeUniqueConstraintError"){
-          return res.status(HTTP_BAD_REQUEST).send('This username is already taken');
-      }
-      return res.status(HTTP_SERVER_ERROR).send('Server Error');
-  });
-});
+
 
 
 
