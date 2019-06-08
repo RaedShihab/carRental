@@ -1,12 +1,11 @@
 const Sequelize = require('sequelize');
-module.exports = new Sequelize('raeddtabase', 'root', 'Raed1992', {
+
+ const db= new Sequelize('raeddtabase', 'root', 'Raed1992', {
     host: 'localhost',
-    dialect: 'mysql',
-    operatorsAliases: false,
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-      },
+    dialect: 'mysql'
   });
+  db.sync({ force: false, logging: false  }).then(() => {
+    console.log(`Database & tables created!`)
+});
+module.exports.db= db;
+module.exports.Sequelize= Sequelize;
