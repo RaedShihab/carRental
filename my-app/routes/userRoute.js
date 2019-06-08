@@ -56,6 +56,7 @@ router.post('/add', (req,res)=> {
  })
 
  router.post('/login', (req, res) => {
+
     Ragister.findOne({
         where: {
             email : req.body.email
@@ -68,13 +69,17 @@ router.post('/add', (req,res)=> {
                 expiresIn: 1440
             })
             res.send(token)
+            console.log('success login')
         }
             } else {
                 res.status(400).json({error: "User does not exsist"})
+                console.log('failed login')
             }
         })
         .catch(err => {
             res.status(400).json({error: err})
+            
+
         })
 
  })

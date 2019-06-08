@@ -13,13 +13,10 @@ class Com2 extends React.Component {
   RegistData(e) {
     e.preventDefault();
     var body = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      password: this.state.password,
       email: this.state.email,
-      phonenumber: this.state.phonenumber
+      password: this.state.password
     }
-    fetch('http://localhost:3001/user/add', {
+    fetch('http://localhost:3001/user/login', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
@@ -50,12 +47,29 @@ class Com2 extends React.Component {
     render(){
       return (
         
-        <div>
-           <input type='text' value={this.state.email}  placeholder="Email"
+        <div className='container'>
+          <div className='col-md-6'>
+          <h1 className="h3 mb-3font-weight-normal">Please Sign In</h1>
+          <div className='form-group'>
+          <input className='form-control'
+            type='text' value={this.state.email}  placeholder="Email"
             onChange={this.handelChangeemail.bind(this)} />
-
-           <input type='text' value={this.state.password}  placeholder="Password"
+          </div>
+          </div>
+          
+          <div className='col-md-6'>
+        <div className='form-group'>
+        <input className='form-control' 
+        type='text' value={this.state.password}  placeholder="Password"
             onChange={this.handelChangepassword.bind(this)} />
+        </div>
+        </div>
+           
+
+           <button 
+           className='btn btn-g btn-primary btn-block' 
+           type='submit' onClick={this.RegistData.bind(this)} >Sign In</button>
+
           </div>
       );
       }
