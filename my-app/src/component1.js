@@ -78,35 +78,35 @@ class Com1 extends React.Component {
               <div className='form-group'>
                 <label htmlFor='first_name'>First Name</label>
               <input className='form-control'
-             type='text' value={this.state.firstname}  placeholder="First Name"
+             type='text' value={this.state.firstname}  
             onChange={this.handelChangefirstname.bind(this)}
             />
               </div>
             <div className='form-group'>
             <label htmlFor='last_name'>Last Name</label>
             <input className='form-control'
-             type='text' value={this.state.lastname}  placeholder="Last Name"
+             type='text' value={this.state.lastname}  
             onChange={this.handelChangelastname.bind(this)}
             />
             </div>
             <div  className='form-group'>
             <label htmlFor='password'>Passwords</label>
             <input className='form-control'
-             type='password' value={this.state.password}  placeholder="Password"
+             type='password' value={this.state.password}  
             onChange={this.handelChangepassword.bind(this)}
             />
             </div>
             <div className='form-group'>
             <label htmlFor='first_name'>Email Adress</label>
             <input className='form-control'
-             type='email' value={this.state.email}  placeholder="Email"
+             type='email' value={this.state.email} 
             onChange={this.handelChangeemail.bind(this)}
             />
             </div>
             <div className='form-group'>
             <label htmlFor='phone_number'>Phone Number</label>
             <input className='form-control'
-             type='number' value={this.state.phonenumber}  placeholder="Phone Number"
+             type='number' value={this.state.phonenumber}  
             onChange={this.handelChangephone.bind(this)}
             />
             </div> 

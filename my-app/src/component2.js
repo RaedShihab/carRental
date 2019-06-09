@@ -47,16 +47,16 @@ class Com2 extends React.Component {
     render(){
       return (
         
-        <div className='container'> 
-          <div className='col-md-6 mt-5 mx-auto'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-6 mt-5 mx-auto'>
           <h1 className="h3 mb-3font-weight-normal">Please Sign In</h1>
-          <div className='form-group'>
-          <input className='form-control'
+          
+            <div className='form-group'>
+            <input className='form-control'
             type='text' value={this.state.email}  placeholder="Email"
             onChange={this.handelChangeemail.bind(this)} />
-          </div>
-          </div>
-          
+            </div>
           
         <div className='form-group'>
         <input className='form-control' 
@@ -64,13 +64,13 @@ class Com2 extends React.Component {
             onChange={this.handelChangepassword.bind(this)} />
        
         </div>
-           
-
            <button 
            className='btn btn-g btn-primary btn-block' 
            type='submit' onClick={this.RegistData.bind(this)} >Sign In</button>
 
           </div>
+         </div>
+         </div>
       );
       }
     }

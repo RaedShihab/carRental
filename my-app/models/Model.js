@@ -1,15 +1,5 @@
 const { db, Sequelize } = require('../database');
 
-// const User = db.define('user', {
-//     name: {
-//         type: Sequelize.STRING
-//     },
-//     lastname: {
-//         type: Sequelize.STRING
-//     }
-
-// })
-// Register Model
 const Ragister = db.define('ragister', {
     firstname: {
         type: Sequelize.STRING
@@ -29,5 +19,21 @@ const Ragister = db.define('ragister', {
 
 })
 
-module.exports = Ragister;
-// module.exports = User;
+const Listcar = db.define('listcar', {
+    address: {
+        type: Sequelize.STRING
+    },
+    year: {
+        type: Sequelize.STRING
+    },
+    make: {
+        type: Sequelize.STRING
+    },
+    model: {
+        type: Sequelize.STRING
+    }
+})
+
+module.exports.Ragister = Ragister;
+module.exports.Listcar = Listcar;
+

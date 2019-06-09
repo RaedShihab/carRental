@@ -4,8 +4,10 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 // const db = require('../database.js');
-const User = require('../models/Model')
-const Ragister = require('../models/Model')
+const User = require('../models/Model');
+const {Ragister} = require('../models/Model');
+const {Listcar} = require('../models/Model');
+
 process.env.SECRET_KEY = "secret"
 // git all users 
 router.get('/', (req,res)=>
@@ -15,7 +17,7 @@ User.findAll()
 })
 .catch(err=> console.log(err))
 )
-
+// save user data inside database:
 router.post('/add', (req,res)=> {
 
  const data = {
@@ -32,20 +34,23 @@ router.post('/add', (req,res)=> {
       }
   })
    .then(user => {
+       console.log('Here',user);
        if(!user) {
            bcrypt.hash(req.body.password, 10, (err,hash)=> {
                data.password = hash
                Ragister.create(data)
                .then(user => {
+                   console.log('console HHHHHHhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhHHere',user)
                  res.json({status: user.email + 'user now registerd'})
                  console.log('user now registerd')
                })
+               
                .catch(err => {
                    res.send('error: '+ err)
                })
            })
        } else {
-           res.json({error: "User already exist"})
+           res.json({error: "User already exist "})
            console.log('User already exist')
        }
    })
@@ -54,7 +59,7 @@ router.post('/add', (req,res)=> {
    })
    
  })
-
+// login user
  router.post('/login', (req, res) => {
 
     Ragister.findOne({
@@ -84,5 +89,26 @@ router.post('/add', (req,res)=> {
 
  })
 
+ // add car information inside database: 
+ router.post('/list-your-car', (req,res)=> {
+
+    const data = {
+        address: req.body.address,
+        year: req.body.year,
+        make: req.body.make,
+        model: req.body.model,
+        phonenumber: req.body.phonenumber
+    }
+      // insert into model
+     Listcar.create(data)
+     .then(user => {
+        res.json({status: user + 'Car now registerd'})
+      console.log( user,'Caaaaaaaaaaaaaaaaar now registerd')
+         })
+      .catch(err => {
+          res.send('error:'  +err)
+      })
+      
+    })
 
 module.exports = router;  
