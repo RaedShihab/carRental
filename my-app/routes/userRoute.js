@@ -111,4 +111,43 @@ router.post('/add', (req,res)=> {
       
     })
 
+    // search for car and return some information to client:
+
+ router.post('/search', (req,res)=> {
+
+   // const data = {
+       // address: req.body.address,
+        // year: req.body.year,
+        // make: req.body.make,
+        // model: req.body.model,
+        // phonenumber: req.body.phonenumber
+  //  }
+ 
+   // insert into model
+  Listcar.findAll({
+      where : {
+          address: req.body.address
+      }
+  })
+   .then(car => {
+       console.log('hhhhhhhhhhhhhhh',car)
+       let filterdData = [];
+       for(let i = 0; i<car.length;i++) {
+          filterdData.push(car[i].dataValues)
+       }
+       console.log('Array',filterdData);
+       res.json({filterdData})
+//        if(car) {
+    //               res.json({status: car.dataValues})
+//                  console.log(car.dataValues)
+//                 // return res.send(car.dataValues) I don't need this
+//     //    } 
+//    } 
+//    else {
+//             res.json({error: "car not exist "})
+//             console.log('car not exist')
+//        }
+ })
+ })
+
 module.exports = router;  
