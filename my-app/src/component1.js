@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 
 
 class Com1 extends React.Component {
@@ -65,7 +68,13 @@ class Com1 extends React.Component {
       //   any: data,
       //   dispalyMealList: true
       // })
-    });
+    })
+    .then(
+      ()=> {
+        this.context.router.push('/')
+      }
+    )
+    
   }
 
     render(){
@@ -122,5 +131,7 @@ class Com1 extends React.Component {
       );
       }
     }
-
+  Com1.contextTypes = {
+    router: React.PropTypes.object.isRequired
+  }
     export default Com1;

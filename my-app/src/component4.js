@@ -9,7 +9,7 @@ class Com4 extends React.Component {
       year: '',
       make: '',
       model: '',
-      carData: [],
+      carData: '',
       dispalyCarList: false
     }
   }
@@ -17,7 +17,7 @@ class Com4 extends React.Component {
   searchCarData(e) {
     e.preventDefault();
     var body = {
-        'address' : this.state.address
+        address : this.state.address
         // year: this.state.year,
         // make: this.state.make,
         // model: this.state.model 
@@ -32,13 +32,13 @@ class Com4 extends React.Component {
       return res.json();
     })
     .then((data) => {
-      //  console.log('come back from database',data.status);
+        console.log('come back from database',data);
       this.setState({
         // carData : data.status,
         carData : data,
         dispalyCarList: true
       })
-      // console.log('and here',data.status)
+       console.log('and here',data)
     })
   }
 
@@ -48,7 +48,7 @@ class Com4 extends React.Component {
     this.setState({
       address: e.target.value,
     });
-         console.log(this.state.address);
+        //  console.log(this.state.address);
    }
 
     render(){
@@ -70,9 +70,11 @@ class Com4 extends React.Component {
            type='submit' onClick={this.searchCarData.bind(this)} >Search</button>
 
             { this.state.dispalyCarList ? 
-            <CarList greeting={'this.state.carData'}/> :
+            <CarList greeting={this.state.carData} /> :
+        
               null
             }
+            
           </div>
          </div>
          </div>
@@ -82,43 +84,38 @@ class Com4 extends React.Component {
 
 
     class CarList extends React.Component {
-
       render(props) {
-    
         return (
-          <div>
-            {this.props.greeting}
-          </div>
+          <div>{
           
-          // <div>{
-          //   this.props.greeting.length > 0 ?
-          //     <table >
-          //       <thead>
-          //         <tr>
-          //           <th>address</th>
-          //           <th>year</th>
-          //           <th>make</th>
-          //           <th>model</th>
-          //         </tr>
-          //       </thead>
-          //       <tbody>
-          //         {
-          //           this.props.greeting.map((car, i) => {
-          //             return <tr key={i} value={car} >
-          //               {console.log(car.dataValues.Address)}
-          //               <td>{car.dataValues.Address}</td>
-          //               <td>{car.dataValues.year}</td>
-          //               <td>{car.dataValues.make}</td>
-          //               <td>{car.dataValues.model}</td>
-          //             </tr>
+            this.props.greeting.length > 0 ?
+              <table >
+                <thead>
+                  <tr>
+                    <th>address</th>
+                    <th>year</th>
+                    <th>make</th>
+                    <th>model</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    this.props.greeting.map((car, i) => {
+                      return <tr key={i} value={car} >
+                        {console.log(car.address)}
+                        <td>{car.address}</td>
+                        <td>{car.year}</td>
+                        <td>{car.make}</td>
+                        <td>{car.model}</td>
+                      </tr>
     
-          //           })
-          //         }
-          //       </tbody>
-          //     </table> : 'Sorry'
+                    })
+                  }
+                </tbody>
+              </table> : 'Sorry'
     
-          // }
-          // </div>
+          }
+          </div>
         )
       }
     }
