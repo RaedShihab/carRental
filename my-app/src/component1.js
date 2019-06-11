@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'
-import PropTypes from 'prop-types'
+
 
 
 
@@ -63,17 +62,14 @@ class Com1 extends React.Component {
     }).then((response) => {
       
     }).then((data) => {
+      this.props.history.push('/com2')
       console.log('come back from server',data);
       // this.setState({
       //   any: data,
       //   dispalyMealList: true
       // })
     })
-    .then(
-      ()=> {
-        this.context.router.push('/')
-      }
-    )
+    
     
   }
 
@@ -120,6 +116,7 @@ class Com1 extends React.Component {
             />
             </div> 
             
+            
            
            <button className='btn btn-g btn-primary btn-block'
             type='submit' onClick={this.sendToServer.bind(this)} >Signup</button>
@@ -131,7 +128,5 @@ class Com1 extends React.Component {
       );
       }
     }
-  Com1.contextTypes = {
-    router: React.PropTypes.object.isRequired
-  }
+  
     export default Com1;

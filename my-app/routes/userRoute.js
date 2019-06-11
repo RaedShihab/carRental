@@ -42,6 +42,7 @@ router.post('/add', (req,res)=> {
                .then(user => {
                    console.log('console HHHHHHhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhHHere',user)
                  res.json({status: user.email + 'user now registerd'})
+
                  console.log('user now registerd')
                })
                
@@ -124,6 +125,7 @@ router.post('/add', (req,res)=> {
   //  }
  
    // insert into model
+
   Listcar.findAll({
       where : {
           address: req.body.address
@@ -147,6 +149,7 @@ router.post('/add', (req,res)=> {
 //             res.json({error: "car not exist "})
 //             console.log('car not exist')
 //        }
+
  })
  })
 

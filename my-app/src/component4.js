@@ -6,10 +6,7 @@ class Com4 extends React.Component {
     super(props);
     this.state = {
       address: '',
-      year: '',
-      make: '',
-      model: '',
-      carData: '',
+      carData:'',
       dispalyCarList: false
     }
   }
@@ -17,7 +14,7 @@ class Com4 extends React.Component {
   searchCarData(e) {
     e.preventDefault();
     var body = {
-        address : this.state.address
+        address : this.state.address,
         // year: this.state.year,
         // make: this.state.make,
         // model: this.state.model 
@@ -32,13 +29,13 @@ class Com4 extends React.Component {
       return res.json();
     })
     .then((data) => {
-        console.log('come back from database',data);
+        // console.log('come back from database',data);
       this.setState({
         // carData : data.status,
-        carData : data,
+        carData : data.filterdData,
         dispalyCarList: true
       })
-       console.log('and here',data)
+       console.log('and here',this.state.carData.filterdData)
     })
   }
 
@@ -86,7 +83,22 @@ class Com4 extends React.Component {
     class CarList extends React.Component {
       render(props) {
         return (
-          <div>{
+        <div>{
+          
+          //  <h1>{this.props.greeting[0].address}</h1>
+            //  this.props.greeting.map((car, i) => {
+            //           console.log('ggg',car)
+            //           return car;
+            //         }
+                      
+          //             return <tr key={i} value={car} >
+          //               {console.log(car.address)}
+          //               <td>{car.address}</td>
+          //               <td>{car.year}</td>
+          //               <td>{car.make}</td>
+          //               <td>{car.model}</td>
+           
+          // <div>{
           
             this.props.greeting.length > 0 ?
               <table >
@@ -101,6 +113,7 @@ class Com4 extends React.Component {
                 <tbody>
                   {
                     this.props.greeting.map((car, i) => {
+                      console.log('ggg',car)
                       return <tr key={i} value={car} >
                         {console.log(car.address)}
                         <td>{car.address}</td>
@@ -113,83 +126,12 @@ class Com4 extends React.Component {
                   }
                 </tbody>
               </table> : 'Sorry'
-    
-          }
-          </div>
+        }
+            </div>
+          
+          
         )
       }
     }
 
     export default Com4;
-
-
-//     class CarList extends  React.Component {
-//       render() {
-//         return<div>
-//           {this.props.greeting > 0?
-//            <p>
-//   <table>
-//   <tr>
-//     <th>address</th>
-//     <th>year</th> 
-//     <th>make</th>
-//     <th>model</th>
-//   </tr>
-//   <tr>
-//     <td>{this.props.greeting.address}</td>
-//     <td>{this.props.greeting.year}</td> 
-//     <td>{this.props.greeting.make}</td>
-//     <td>{this.props.greeting.model}</td>
-//   </tr>
-// </table>
-//         </p>
-//           }
-//         </div> 
-       
-//       }
-//     }
-
-
-
-
-    //   handelChangeyear(e) {
-//     this.setState({
-//       year: e.target.value,
-//     });
-//     console.log(this.state.year);
-//   }
-//   handelChangemake(e) {
-//     this.setState({
-//       make: e.target.value,
-//     });
-//     console.log(this.state.make);
-//   }
-//   handelChangemodel(e) {
-//     this.setState({
-//       model: e.target.value,
-//     });
-//     console.log(this.state.model);
-//   }
-
-
-
-/* <div className='form-group'>
-        <input className='form-control' 
-        type='text' value={this.state.year}  placeholder="Year"
-            onChange={this.handelChangeyear.bind(this)} />
-       
-        </div>
-
-        <div className='form-group'>
-        <input className='form-control' 
-        type='text' value={this.state.make}  placeholder="Make"
-            onChange={this.handelChangemake.bind(this)} />
-       
-        </div>
-
-        <div className='form-group'>
-        <input className='form-control' 
-        type='text' value={this.state.model}  placeholder="Model"
-            onChange={this.handelChangemodel.bind(this)} />
-       
-        </div> */
