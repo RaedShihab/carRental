@@ -23,6 +23,7 @@ class Com2 extends React.Component {
     }).then((response) => {
       
     }).then((data) => {
+      this.props.history.push('/profile')
       console.log('come back from server',data);
       // this.setState({
       //   any: data,

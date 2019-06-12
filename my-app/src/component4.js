@@ -1,4 +1,7 @@
 import React from 'react';
+import './style.css'
+// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+// require('node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css');
 
 
 class Com4 extends React.Component {
@@ -83,31 +86,16 @@ class Com4 extends React.Component {
     class CarList extends React.Component {
       render(props) {
         return (
-        <div>{
           
-          //  <h1>{this.props.greeting[0].address}</h1>
-            //  this.props.greeting.map((car, i) => {
-            //           console.log('ggg',car)
-            //           return car;
-            //         }
-                      
-          //             return <tr key={i} value={car} >
-          //               {console.log(car.address)}
-          //               <td>{car.address}</td>
-          //               <td>{car.year}</td>
-          //               <td>{car.make}</td>
-          //               <td>{car.model}</td>
-           
-          // <div>{
-          
+        <div >{
             this.props.greeting.length > 0 ?
-              <table >
+              <table  >
                 <thead>
                   <tr>
-                    <th>address</th>
-                    <th>year</th>
-                    <th>make</th>
-                    <th>model</th>
+                    <th >address</th>
+                    <th >year</th>
+                    <th >make</th>
+                    <th >model</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -116,10 +104,10 @@ class Com4 extends React.Component {
                       console.log('ggg',car)
                       return <tr key={i} value={car} >
                         {console.log(car.address)}
-                        <td>{car.address}</td>
-                        <td>{car.year}</td>
-                        <td>{car.make}</td>
-                        <td>{car.model}</td>
+                        <td >{car.address}</td>
+                        <td >{car.year}</td>
+                        <td >{car.make}</td>
+                        <td >{car.model}</td>
                       </tr>
     
                     })
