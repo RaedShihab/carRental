@@ -1,12 +1,14 @@
 import React from 'react';
-
+import { Redirect } from 'react-router-dom'
+import Profile from './profile';
 
 class Com2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      user_id: ''
     }
   }
 
@@ -21,14 +23,20 @@ class Com2 extends React.Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     }).then((response) => {
-      
+      return response.json();
+
     }).then((data) => {
-      this.props.history.push('/profile')
-      console.log('come back from server',data);
-      // this.setState({
-      //   any: data,
-      //   dispalyMealList: true
-      // })
+      //console.log('come back from server',data);
+      if(data.message === 'succes') {
+         console.log(data.message, data.id)
+        // this.props.setUserId(data.id);
+          this.props.history.push('/profile', { res:data.id  });
+        
+      }
+      else {
+          this.props.history.push('/com1');
+      }
+      
     });
   }
 
@@ -47,7 +55,7 @@ class Com2 extends React.Component {
 
     render(){
       return (
-        
+        <div>
         <div className='container'>
           <div className='row'>
             <div className='col-md-6 mt-5 mx-auto'>
@@ -70,6 +78,7 @@ class Com2 extends React.Component {
            type='submit' onClick={this.RegistData.bind(this)} >Sign In</button>
 
           </div>
+         </div>
          </div>
          </div>
       );

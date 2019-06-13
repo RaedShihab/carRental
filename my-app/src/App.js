@@ -7,22 +7,38 @@ import Com4 from './component4';
 import Profile from './profile'
  import Navgation from './navLink'
 import App1 from './123component';
+import Com2 from './component2';
 
 class App extends React.Component {
-
-  render(){
+  constructor(props) {
+    super(props);
+    this.state = {
+      // user_id: '0'
+    }
+  }
+ 
+  // setUserId(idd) {
+  //   console.log(idd)
+  //   this.setState({
+  //     user_id: idd
+  //   });
+  // }
+render(){
+  // console.log(this.state.password);
     return (
       
       <div>
         <BrowserRouter>
         <Navgation/>
-
-          {/* <Route path='/com2' component={Com2} exact/>
-          <Route path="/com1" component={Com1} exact />
-          <Route path="/com3" component={Com3} exact /> */}
           <Route path="/com4" component={Com4} exact />
           <Route path="/App1" component={App1} exact />
-
+          {/* <Route path="/Profile" component={()=>(
+            <Profile user_id={this.state.user_id}/>
+          )} exact />
+          <Route path="/com2" component={()=>(
+            <Com2 setUserId={this.setUserId.bind(this)}/>
+          )} exact /> */}
+        
           </BrowserRouter>
            </div>
     );

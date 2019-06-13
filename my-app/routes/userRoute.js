@@ -74,12 +74,15 @@ router.post('/add', (req,res)=> {
             let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                 expiresIn: 1440
             })
-            res.send(token)
+            res.json({message:'succes',id:user.id})
             console.log('success login')
-        }
+        } else {
+            res.json('failed')
+            console.log('err with password')}
+
             } else {
                 res.status(400).json({error: "User does not exsist"})
-                console.log('failed login')
+                console.log('error with email')
             }
         })
         .catch(err => {
@@ -152,5 +155,27 @@ router.post('/add', (req,res)=> {
 
  })
  })
+
+ router.post('/changcar', (req,res)=> {
+
+    const data = {
+        address: req.body.address,
+        year: req.body.year,
+        make: req.body.make,
+        model: req.body.model,
+        phonenumber: req.body.phonenumber
+    }
+      // insert into model
+     Listcar.create(data)
+     .then(user => {
+        res.json({status: user + 'Car now changed'})
+      console.log( user,'Caaaaaaaaaaaaaaaaar now change')
+         })
+      .catch(err => {
+          res.send('error:'  +err)
+      })
+      
+    })
+
 
 module.exports = router;  

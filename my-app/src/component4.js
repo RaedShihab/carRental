@@ -54,15 +54,16 @@ class Com4 extends React.Component {
     render(){
       return (
         
+        
         <div className='container'>
           <div className='row'>
             <div className='col-md-6 mt-5 mx-auto'>
           <h1 className="h3 mb-3font-weight-normal">Enter your location</h1>
           
             <div className='form-group'>
-            <input className='form-control'
-            type='text' value={this.state.address}  placeholder="address"
-            onChange={this.handelChangeaddress.bind(this)} />
+            <input value={this.state.address}
+            onChange={this.handelChangeaddress.bind(this)}
+            type="text" class="form-control form-control-lg" placeholder="Enter Location..." />
             </div>
 
            <button 
@@ -86,16 +87,16 @@ class Com4 extends React.Component {
     class CarList extends React.Component {
       render(props) {
         return (
-          
-        <div >{
+          <div>
+              {
             this.props.greeting.length > 0 ?
-              <table  >
-                <thead>
+              <table class="table table-bordered" >
+                <thead class="grey lighten-2">
                   <tr>
-                    <th >address</th>
-                    <th >year</th>
-                    <th >make</th>
-                    <th >model</th>
+                    <th scope="col" >address</th>
+                    <th scope="col">year</th>
+                    <th scope="col" >make</th>
+                    <th scope="col">model</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -115,8 +116,9 @@ class Com4 extends React.Component {
                 </tbody>
               </table> : 'Sorry'
         }
-            </div>
-          
+             
+         </div>
+        
           
         )
       }
