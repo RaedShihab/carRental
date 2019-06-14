@@ -159,11 +159,13 @@ router.post('/add', (req,res)=> {
  router.post('/changcar', (req,res)=> {
 
     const data = {
+        registerdId: req.destroy.regiterdId,
         address: req.body.address,
         year: req.body.year,
         make: req.body.make,
         model: req.body.model,
         phonenumber: req.body.phonenumber
+        
     }
       // insert into model
      Listcar.create(data)

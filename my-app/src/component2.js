@@ -28,9 +28,9 @@ class Com2 extends React.Component {
     }).then((data) => {
       //console.log('come back from server',data);
       if(data.message === 'succes') {
-         console.log(data.message, data.id)
+        //  console.log(data.message, data.id)
         // this.props.setUserId(data.id);
-          this.props.history.push('/profile', { res:data.id  });
+          this.props.history.push('/profile', {res:data.id});
         
       }
       else {
