@@ -16,9 +16,9 @@ const Nav2 =() =>{
        <NavLink to="/com2" className='nav-link' exact>Login</NavLink> <br></br>
         </button> 
 
-           < button>
+           {/* < button>
        <NavLink to="/com3" className='nav-link' exact>Add your car</NavLink> <br></br> 
-           </button>
+           </button> */}
          
          
        </div>

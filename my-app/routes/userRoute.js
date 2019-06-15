@@ -131,7 +131,7 @@ router.post('/add', (req,res)=> {
 
   Listcar.findAll({
       where : {
-          address: req.body.address
+          address: req.body.address,
       }
   })
    .then(car => {
@@ -157,16 +157,15 @@ router.post('/add', (req,res)=> {
  })
 
  router.post('/changcar', (req,res)=> {
-
-    const data = {
-        registerdId: req.destroy.regiterdId,
+const  ragisterId= parseInt(req.body.user_id)
+    const data= {
         address: req.body.address,
         year: req.body.year,
         make: req.body.make,
         model: req.body.model,
-        phonenumber: req.body.phonenumber
-        
+        ragisterId: ragisterId
     }
+    console.log(data)
       // insert into model
      Listcar.create(data)
      .then(user => {
@@ -179,5 +178,19 @@ router.post('/add', (req,res)=> {
       
     })
 
+    router.post('/update', (req,res)=> {
+    Listcar.update(
+        { address: req.body.address},
+        {},
+        {},
+        { where : {
+            address: req.body.address,
+        }}
+      )
+      .then(function(rowsUpdated) {
+        res.json(rowsUpdated)
+      })
+      .catch()
+    })
 
 module.exports = router;  

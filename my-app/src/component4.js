@@ -32,7 +32,7 @@ class Com4 extends React.Component {
       return res.json();
     })
     .then((data) => {
-        // console.log('come back from database',data);
+         console.log('come back from database',data);
       this.setState({
         // carData : data.status,
         carData : data.filterdData,
