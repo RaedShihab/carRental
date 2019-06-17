@@ -7,8 +7,12 @@
  import Com1 from './component1';
  import Com3 from './component3';
  import Profile from './profile';
+ import Update from './update'
+ import Delete from './delete'
  import Parent from './profile';
   import Nav2 from './nav2'
+  import Nav3 from './profileRoutes'
+
 
 class App1 extends React.Component {
 
@@ -22,7 +26,10 @@ class App1 extends React.Component {
           <Route path='/com2' component={Com2} exact/>
           <Route path="/com1" component={Com1} exact />
           {/* <Route path="/com3" component={Com3} exact /> */}
-          <Route path="/profile" component={Parent} exact />
+          <Route path="/profile" component={Profile} exact />
+          <Route path="/Update" component={Update} exact />
+          <Route path="/Delete" component={Delete} exact />
+          <Route path="/ProfilesRoutes" component={Nav3}/>
           </BrowserRouter>
            </div>
     );

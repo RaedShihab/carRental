@@ -34,13 +34,13 @@ router.post('/add', (req,res)=> {
       }
   })
    .then(user => {
-       console.log('Here',user);
+       //console.log('Here',user);
        if(!user) {
            bcrypt.hash(req.body.password, 10, (err,hash)=> {
                data.password = hash
                Ragister.create(data)
                .then(user => {
-                   console.log('console HHHHHHhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhHHere',user)
+                   //console.log('console HHHHHHhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhHHere',user)
                  res.json({status: user.email + 'user now registerd'})
 
                  console.log('user now registerd')
@@ -93,104 +93,105 @@ router.post('/add', (req,res)=> {
 
  })
 
- // add car information inside database: 
- router.post('/list-your-car', (req,res)=> {
-
-    const data = {
-        address: req.body.address,
-        year: req.body.year,
-        make: req.body.make,
-        model: req.body.model,
-        phonenumber: req.body.phonenumber
-    }
-      // insert into model
-     Listcar.create(data)
-     .then(user => {
-        res.json({status: user + 'Car now registerd'})
-      console.log( user,'Caaaaaaaaaaaaaaaaar now registerd')
-         })
-      .catch(err => {
-          res.send('error:'  +err)
-      })
-      
-    })
-
     // search for car and return some information to client:
 
  router.post('/search', (req,res)=> {
-
-   // const data = {
-       // address: req.body.address,
-        // year: req.body.year,
-        // make: req.body.make,
-        // model: req.body.model,
-        // phonenumber: req.body.phonenumber
-  //  }
- 
-   // insert into model
-
   Listcar.findAll({
       where : {
           address: req.body.address,
       }
   })
    .then(car => {
-       console.log('hhhhhhhhhhhhhhh',car)
+       //console.log('hhhhhhhhhhhhhhh',car)
        let filterdData = [];
        for(let i = 0; i<car.length;i++) {
           filterdData.push(car[i].dataValues)
        }
-       console.log('Array',filterdData);
+       //console.log('Array',filterdData);
        res.json({filterdData})
-//        if(car) {
-    //               res.json({status: car.dataValues})
-//                  console.log(car.dataValues)
-//                 // return res.send(car.dataValues) I don't need this
-//     //    } 
-//    } 
-//    else {
-//             res.json({error: "car not exist "})
-//             console.log('car not exist')
-//        }
-
  })
  })
 
  router.post('/changcar', (req,res)=> {
-const  ragisterId= parseInt(req.body.user_id)
-    const data= {
-        address: req.body.address,
-        year: req.body.year,
-        make: req.body.make,
-        model: req.body.model,
-        ragisterId: ragisterId
+    const  ragisterId= parseInt(req.body.user_id)
+let companyName = '';
+let data ={};
+Ragister.findOne({
+    where : {
+        id : ragisterId
     }
-    console.log(data)
-      // insert into model
-     Listcar.create(data)
+}).then(user => {
+ 
+//console.log(companyName)
+if(user) {
+    companyName = companyName + user.firstname + user.lastname
+    // console.log(companyName)
+    data= {
+    address: req.body.address,
+    year: req.body.year,
+    make: req.body.make,
+    model: req.body.model,
+    ragisterId: ragisterId,
+    carCode: req.body.carCode,
+     companyName: companyName
+}
+console.log('here is the data',data)
+if(data.companyName !== null) {
+Listcar.create(data)
      .then(user => {
-        res.json({status: user + 'Car now changed'})
-      console.log( user,'Caaaaaaaaaaaaaaaaar now change')
+        res.json({status: user + 'Car now added'})
+     console.log( user,'Caaaaaaaaaaaaaaaaar added')
          })
       .catch(err => {
+          console.log( 'here is the error',err)
           res.send('error:'  +err)
+          
       })
-      
+    }
+    }
+ 
+})
     })
 
-    router.post('/update', (req,res)=> {
+    router.put('/updatecar', (req,res)=> {
     Listcar.update(
-        { address: req.body.address},
-        {},
-        {},
+        { address: req.body.updateaddress,
+          year: req.body.updateyear,
+          make: req.body.updatemake,
+          model: req.body.updatemodel,
+          ragisterId: req.body.user_id,
+          carCode2: req.body.carCode2
+        },
         { where : {
-            address: req.body.address,
-        }}
+            carCode: req.body.carCode2,
+            ragisterId: req.body.user_id,
+        }         }
       )
-      .then(function(rowsUpdated) {
-        res.json(rowsUpdated)
+      .then(data => {
+          console.log('ddddddd',data)
+          res.json({data})
       })
       .catch()
     })
+
+    router.delete('/deletecar', (req,res)=> {
+    Listcar.destroy(
+        {
+            where: {
+            carCode: req.body.carCode3,
+            ragisterId: req.body.user_id    
+        }
+
+        }
+        
+    ).then(data => {
+        console.log('dddddddeeeelllll',data)
+        res.json({data: 'data deleted'})
+    }).catch()
+
+    })
+
+    
+    
 
 module.exports = router;  

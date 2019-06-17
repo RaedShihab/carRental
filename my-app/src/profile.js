@@ -20,14 +20,64 @@ import React from 'react';
 //     return (
 //       <div>
 //         <button onClick={this.toggleHidden.bind(this)} >
-//           Click to show modal
+//           Change car data from here
 //         </button>
 //         {!this.state.isHidden && <Profile />}
+//         {!this.state.isHidden && <Update />}
+//         {!this.state.isHidden && <Delete />}
 //       </div>
 //     )
 //   }
 // }
-
+////////////////////////////
+// class Parent2 extends React.Component {
+//   constructor () {
+//     super()
+//     this.state = {
+//       isHidden: true
+//     }
+//   }
+//   toggleHidden () {
+//     this.setState({
+//       isHidden: !this.state.isHidden
+//     })
+//   }
+//   render () {
+//     return (
+//       <div>
+//         <button onClick={this.toggleHidden.bind(this)} >
+//           Click to show modal
+//         </button>
+//         {!this.state.isHidden && <Update />}
+//       </div>
+//     )
+//   }
+// }
+// /////////////////////////////////////
+// class Parent3 extends React.Component {
+//   constructor () {
+//     super()
+//     this.state = {
+//       isHidden: true
+//     }
+//   }
+//   toggleHidden () {
+//     this.setState({
+//       isHidden: !this.state.isHidden
+//     })
+//   }
+//   render () {
+//     return (
+//       <div>
+//         <button onClick={this.toggleHidden.bind(this)} >
+//           Click to show modal
+//         </button>
+//         {!this.state.isHidden && <Delete />}
+//       </div>
+//     )
+//   }
+//}
+//////////////////////////////
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -36,15 +86,26 @@ class Profile extends React.Component {
       year: '',
       make: '',
       model: '',
-      user_id: ''
+      carCode: '',
+      user_id: '',
+
+      updateaddress: '',
+      updateyear: '',
+      updatemake: '',
+      updatemodel: '',
+      carCode2: '',
+      carCode3: '',
+      
     }
     // const state1 = this.props
     // console.log(this.state.user_id, 'fsfsd')
   }
 
+  
+
   getId() {
       this.setState({
-         user_id: this.props.history.location.state.res
+          user_id: this.props.history.location.state.res
 
       } ,()=> console.log(this.props.history, 'fsfdfsdsd')  )
 
@@ -73,24 +134,33 @@ class Profile extends React.Component {
     this.setState({
       year: e.target.value,
     });
-          console.log(this.state.address);
+          console.log(this.state.year);
    }
 
    handelChangemake(e) {
     this.setState({
       make: e.target.value,
     });
-          console.log(this.state.address);
+          console.log(this.state.make);
    }
 
    handelChangemodel(e) {
     this.setState({
       model: e.target.value,
     });
-          console.log(this.state.address);
+         console.log(this.state.model);
    }
 
-   changeCarData(e) {
+   handelChangecarCode(e) {
+    this.setState({
+      carCode: e.target.value,
+    });
+         console.log(this.state.carCode);
+   }
+
+   
+
+   addCarData(e) {
 
     e.preventDefault();
     var body = {
@@ -98,7 +168,8 @@ class Profile extends React.Component {
         year: this.state.year,
         make: this.state.make,
         model: this.state.model ,
-        user_id: this.state.user_id
+        user_id: this.state.user_id,
+        carCode: this.state.carCode,
     }
     
     fetch('http://localhost:3001/user/changcar', {
@@ -111,13 +182,13 @@ class Profile extends React.Component {
       console.log('come back from server',data);
     });
   }
-  
 
     render(){
       // console.log(this.props.user_id)
 
       return (
         <div>
+          <h1 className="h3 mb-3font-weight-normal">Welcome to your profile</h1>
         <div className='container'>
           <div className='row'>
             <div className='col-md-6 mt-5 mx-auto'>
@@ -130,96 +201,50 @@ class Profile extends React.Component {
           {/* {console.log(this.state.user_id)} */}
             <div className='form-group'>
             <input className='form-control'
-            type='text' value={this.state.address}  placeholder="updated adress"
+            type='text' value={this.state.address}  placeholder="add adress"
             onChange={this.handelChangeaddress.bind(this)} />
             </div>
           
         <div className='form-group'>
         <input className='form-control' 
-        type='text' value={this.state.year}  placeholder="updated Year"
+        type='text' value={this.state.year}  placeholder="add Year"
             onChange={this.handelChangeyear.bind(this)} />
        
         </div>
 
         <div className='form-group'>
         <input className='form-control' 
-        type='text' value={this.state.make}  placeholder="updated Make"
+        type='text' value={this.state.make}  placeholder="add Make"
             onChange={this.handelChangemake.bind(this)} />
        
         </div>
 
         <div className='form-group'>
         <input className='form-control' 
-        type='text' value={this.state.model}  placeholder="updated Model"
+        type='text' value={this.state.model}  placeholder="add Model"
             onChange={this.handelChangemodel.bind(this)} />
        
         </div>
 
         <div className='form-group'>
         <input className='form-control' 
-        type='text' value={this.state.model}  placeholder="inter car code"
-            onChange={this.handelChangemodel.bind(this)} />
+        type='text' value={this.state.carCode}  placeholder="enter car code"
+            onChange={this.handelChangecarCode.bind(this)} />
        
         </div>
-
            <button 
            className='btn btn-g btn-primary btn-block' 
-           type='submit' onClick={this.changeCarData.bind(this)} >add a car</button>
+           type='submit' onClick={this.addCarData.bind(this)} >add a car</button>
 
           </div>
          </div>
          </div>
-
-<div className='container'>
-<div className='row'>
-  <div className='col-md-6 mt-5 mx-auto'>
-<h1 className="h3 mb-3font-weight-normal">Welcome</h1>
-
-<input className='form-control'
-onChange={this.handelForigenId.bind(this)}
-  type='Number' value={this.state.user_id}/>
-
-{/* {console.log(this.state.user_id)} */}
-  <div className='form-group'>
-  <input className='form-control'
-  type='text' value={this.state.address}  placeholder="updated adress"
-  onChange={this.handelChangeaddress.bind(this)} />
-  </div>
-
-<div className='form-group'>
-<input className='form-control' 
-type='text' value={this.state.year}  placeholder="updated Year"
-  onChange={this.handelChangeyear.bind(this)} />
-
-</div>
-
-<div className='form-group'>
-<input className='form-control' 
-type='text' value={this.state.make}  placeholder="updated Make"
-  onChange={this.handelChangemake.bind(this)} />
-
-</div>
-
-<div className='form-group'>
-<input className='form-control' 
-type='text' value={this.state.model}  placeholder="updated Model"
-  onChange={this.handelChangemodel.bind(this)} />
-
-</div>
-
- <button 
- className='btn btn-g btn-primary btn-block' 
- type='submit' onClick={this.changeCarData.bind(this)} >update</button>
-
-</div>
-</div>
-</div>
-</div>
-
+        </div>
+       
       );
       }
     }
-
-
    
     export default Profile;
+    
+

@@ -36,8 +36,11 @@ header.masthead .overlay {
   left: 0;
   opacity: 0.3;
 }
-
+.col-xl-9.mx-auto {
+  color: #000;
+}
 header.masthead h1 {
+
   font-size: 2rem;
 }
 

@@ -35,7 +35,11 @@ const Listcar = db.define('listcar', {
     carCode: { 
 
        type: Sequelize.INTEGER
-    }
+    },
+    companyName: { 
+
+        type: Sequelize.INTEGER
+     },
 })
 
 Ragister.hasMany(Listcar); // Will add userId to Task mo
