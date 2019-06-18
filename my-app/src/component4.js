@@ -14,6 +14,10 @@ class Com4 extends React.Component {
     }
   }
 
+  handleClick() {
+    console.log('Hi')
+  }
+  
   searchCarData(e) {
     e.preventDefault();
     var body = {
@@ -88,11 +92,17 @@ class Com4 extends React.Component {
       render(props) {
         return (
           <div>
-              {
+
+ <ReactTable
+  getTrProps={(state, rowInfo, column, instance) => ({
+    onClick: e => console.log('A row was clicked!')
+  })}
+  />
+              {/* {
             this.props.greeting.length > 0 ?
               <table class="table table-bordered" >
                 <thead class="grey lighten-2">
-                  <tr>
+                  <tr onClick={this.handleClick} > 
                     <th scope="col" >address</th>
                     <th scope="col">year</th>
                     <th scope="col" >make</th>
@@ -105,7 +115,7 @@ class Com4 extends React.Component {
                       console.log('ggg',car)
                       return <tr key={i} value={car} >
                         {console.log(car.address)}
-                        <td >{car.address}</td>
+                        <td onClick={this.handleClick}>{car.address}</td>
                         <td >{car.year}</td>
                         <td >{car.make}</td>
                         <td >{car.model}</td>
@@ -116,7 +126,7 @@ class Com4 extends React.Component {
                 </tbody>
               </table> : 'Sorry'
         }
-             
+              */}
          </div>
         
           

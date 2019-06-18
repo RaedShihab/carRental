@@ -30,7 +30,7 @@ class Com2 extends React.Component {
       if(data.message === 'succes') {
         //  console.log(data.message, data.id)
         // this.props.setUserId(data.id);
-          this.props.history.push('/profile', {res:data.id});
+          this.props.history.push('/ProfilesRoutes', {res:data.id});
         
       }
       else {

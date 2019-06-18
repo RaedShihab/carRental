@@ -98,16 +98,16 @@ class Profile extends React.Component {
       
     }
     // const state1 = this.props
-    // console.log(this.state.user_id, 'fsfsd')
+     console.log(this.state.user_id, 'fsfsd')
+     console.log(this.props.location.aboutProps.data,'kkkkkkkkkkkkkk')
   }
 
-  
+
 
   getId() {
       this.setState({
-          user_id: this.props.history.location.state.res
-
-      } ,()=> console.log(this.props.history, 'fsfdfsdsd')  )
+          user_id: this.props.location.aboutProps.data
+      } , ()=> console.log(this.props.location.aboutProps.data, 'uuuuuu') )
 
   }
 
@@ -115,7 +115,7 @@ class Profile extends React.Component {
     this.setState({
       user_id: e.target.user_id,
     });
-          console.log(this.state.address);
+          console.log(this.state.user_id);
    }
 
   componentDidMount() {
@@ -161,8 +161,8 @@ class Profile extends React.Component {
    
 
    addCarData(e) {
-
     e.preventDefault();
+
     var body = {
         address: this.state.address,
         year: this.state.year,
@@ -171,7 +171,7 @@ class Profile extends React.Component {
         user_id: this.state.user_id,
         carCode: this.state.carCode,
     }
-    
+  
     fetch('http://localhost:3001/user/changcar', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },

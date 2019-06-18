@@ -33,36 +33,66 @@
 //     export default ProfileRoutes;
 
 import React  from 'react';
- import {NavLink} from 'react-router-dom';
+ import {NavLink, Link} from 'react-router-dom';
 
 
 
-const Nav3 =() =>{
+ class Nav3 extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+          user_id: ''  
+        };
+        // const state1 = this.props
+        // console.log(this.state.user_id, 'fsfsd')
+      }
+
+    getId() {
+     this.setState({
+      user_id: this.props.history.location.state.res
+       } ,()=> console.log(this.props.history.location.state.res, 'fsfdfsdsd'))
+    }
+
+    componentDidMount() {
+        // console.log(this.props.history.location.state.res)
+        this.getId();
+      }
+    
+    render() {
     return (
-
         <div >
          <button>
-         <NavLink to="/profile" className='nav-link' exact>Profile</NavLink> <br></br>
+         <NavLink to={{
+             pathname: '/profile',
+             aboutProps: {
+                 data:this.state.user_id
+             }
+         }} 
+         className='nav-link' exact>Profile</NavLink> <br></br>
          </button>
 
-       <button>
-       <NavLink to="/Update" className='nav-link' exact>Update</NavLink> <br></br>
-        </button> 
+         <button>
+         <NavLink to={{ 
+             pathname: '/Update',
+             aboutProps: {
+                 data:this.state.user_id
+             }
+         }} 
+         className='nav-link' exact>Update</NavLink> <br></br>
+         </button> 
 
-        <button>
-       <NavLink to="/Delete" className='nav-link' exact>Delete</NavLink> <br></br>
-        </button> 
-
-           {/* < button>
-       <NavLink to="/com3" className='nav-link' exact>Add your car</NavLink> <br></br> 
-           </button> */}
-         
-         
+         <button>
+         <NavLink to={{ 
+             pathname: '/Delete',
+             aboutProps: {
+                 data:this.state.user_id
+             }
+         }} 
+         className='nav-link' exact>delete</NavLink> <br></br>
+         </button>
        </div>
-
-
     )
 }
-
+        }
 export default Nav3;

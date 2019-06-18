@@ -26,8 +26,8 @@ class Delete extends React.Component {
   
     getId() {
         this.setState({
-            user_id: this.props.history.location.state.res
-        } ,()=> console.log(this.props.history, 'fsfdfsdsd')  )
+            user_id: this.props.location.aboutProps.data
+        } , ()=> console.log(this.props.location.aboutProps.data, 'uuuuuu') )
   
     }
   
@@ -35,11 +35,11 @@ class Delete extends React.Component {
       this.setState({
         user_id: e.target.user_id,
       });
-            console.log(this.state.address);
+            console.log(this.state.user_id);
      }
   
     componentDidMount() {
-      console.log(this.props.history.location.state.res)
+      // console.log(this.props.history.location.state.res)
       this.getId();
     }
 

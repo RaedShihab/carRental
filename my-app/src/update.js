@@ -26,25 +26,24 @@ class Update extends React.Component {
   
     
   
-    getId() {
-        this.setState({
-            user_id: this.props.history.location.state.res
-  
-        } ,()=> console.log(this.props.history, 'fsfdfsdsd')  )
-  
-    }
-  
-    handelForigenId(e) {
-      this.setState({
-        user_id: e.target.user_id,
-      });
-            console.log(this.state.address);
-     }
-  
-    componentDidMount() {
-      // console.log(this.props.history.location.state.res)
-      this.getId();
-    }
+getId() {
+    this.setState({
+        user_id: this.props.location.aboutProps.data
+    } , ()=> console.log(this.props.location.aboutProps.data, 'uuuuuu') )
+
+}
+
+handelForigenId(e) {
+  this.setState({
+    user_id: e.target.user_id,
+  });
+        console.log(this.state.user_id);
+ }
+
+componentDidMount() {
+  // console.log(this.props.history.location.state.res)
+  this.getId();
+}
   
     
   

@@ -40,6 +40,18 @@ const Listcar = db.define('listcar', {
 
         type: Sequelize.INTEGER
      },
+     wifi: {
+        type: Sequelize.STRING
+     },
+     autoorgear: {
+        type: Sequelize.STRING
+     },
+     pricePerHour:{
+        type: Sequelize.STRING
+     },
+     capacity: {
+        type: Sequelize.STRING
+     }
 })
 
 Ragister.hasMany(Listcar); // Will add userId to Task mo
