@@ -54,7 +54,7 @@ const Listcar = db.define('listcar', {
      }
 })
 
-Ragister.hasMany(Listcar); // Will add userId to Task mo
+Ragister.hasMany(Listcar); 
 Listcar.belongsTo(Ragister, { foreignKey: 'ragisterId' });
 
 module.exports.Ragister = Ragister;

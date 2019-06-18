@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import ReactTable from 'react-table'
 // import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 // require('node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css');
 
@@ -46,6 +47,26 @@ class Com4 extends React.Component {
     })
   }
 
+  sendCarDetails(e, carObj) {
+    e.preventDefault();
+    console.log(carObj);
+    console.log('oooooooooooookkkkkkkkkkkkkk')
+    fetch('http://localhost:3001/user/carDetails', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(carObj)
+    }).then((response) => {
+      return response.json();
+    }).then((data) => {
+      // console.log(data);
+      this.setState({
+        resturants:data,
+        dispalyCarList: false,
+        displaDetailstList: true
+      })
+    });
+  }
+
   
 
   handelChangeaddress(e) {
@@ -75,10 +96,13 @@ class Com4 extends React.Component {
            type='submit' onClick={this.searchCarData.bind(this)} >Search</button>
 
             { this.state.dispalyCarList ? 
-            <CarList greeting={this.state.carData} /> :
-        
+            <CarList greeting={this.state.carData} sendCarDetails={this.sendCarDetails.bind(this)} /> :
               null
             }
+            {this.state.displaDetailstList ?
+                <CarDetails resturants={this.state.resturants}/> :
+                null
+              }
             
           </div>
          </div>
@@ -92,33 +116,28 @@ class Com4 extends React.Component {
       render(props) {
         return (
           <div>
-
- <ReactTable
-  getTrProps={(state, rowInfo, column, instance) => ({
-    onClick: e => console.log('A row was clicked!')
-  })}
-  />
-              {/* {
+               {
             this.props.greeting.length > 0 ?
               <table class="table table-bordered" >
                 <thead class="grey lighten-2">
-                  <tr onClick={this.handleClick} > 
-                    <th scope="col" >address</th>
+                  <tr> 
+                    <th scope="col" >address</th> 
                     <th scope="col">year</th>
                     <th scope="col" >make</th>
                     <th scope="col">model</th>
+                    <th scope="col">company</th>
                   </tr>
                 </thead>
                 <tbody>
                   {
                     this.props.greeting.map((car, i) => {
                       console.log('ggg',car)
-                      return <tr key={i} value={car} >
-                        {console.log(car.address)}
-                        <td onClick={this.handleClick}>{car.address}</td>
+                      return <tr key={i} value={car}  >
+                        <td>{car.address}</td> 
                         <td >{car.year}</td>
                         <td >{car.make}</td>
                         <td >{car.model}</td>
+                        <td >{car.companyName}</td> <button  onClick={(event) => this.props.sendCarDetails(event, car)}>click</button>
                       </tr>
     
                     })
@@ -126,10 +145,42 @@ class Com4 extends React.Component {
                 </tbody>
               </table> : 'Sorry'
         }
-              */}
-         </div>
-        
-          
+              }
+         </div>  
+        )
+      }
+    }
+
+    class CarDetails extends React.Component {
+      render(props) {
+    
+        return (
+          <div>{
+            this.props.resturants.length > 0 ?
+              <table >
+                <thead>
+                  <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>Age</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    this.props.resturants.map((resturant, i) => {
+                      return <tr key={i} onClick={() => console.log("this is" + resturant.restName)}>
+    
+                        <td>{resturant.name}</td>
+                        <td>{resturant.phone}</td>
+                        <td>{resturant.address}</td>
+                      </tr>
+                    })
+                  }
+                </tbody>
+              </table> : null
+          }
+          </div>
         )
       }
     }

@@ -96,11 +96,40 @@ class Profile extends React.Component {
       carCode2: '',
       carCode3: '',
       
+      wifi: '',
+      autoorgear: '',
+      pricePerHour: '',
+      capacity: '',
     }
     // const state1 = this.props
      console.log(this.state.user_id, 'fsfsd')
      console.log(this.props.location.aboutProps.data,'kkkkkkkkkkkkkk')
   }
+
+  handelChangewifi(e) {
+    this.setState({
+      wifi: e.target.value,
+    });
+    console.log(this.state.wifi);
+   }
+   handelChangeautoorgeare(e) {
+     this.setState({
+       autoorgear: e.target.value,
+     })
+     console.log(this.state.autoorgear);
+   }
+   handelChangepricePerHour(e) {
+     this.setState({
+       pricePerHour: e.target.value,
+     })
+     console.log(this.state.pricePerHour);
+   }
+   handelChangecapacity(e) {
+     this.setState({
+       capacity: e.target.value,
+     })
+     console.log(this.state.capacity);
+   }
 
 
 
@@ -170,8 +199,11 @@ class Profile extends React.Component {
         model: this.state.model ,
         user_id: this.state.user_id,
         carCode: this.state.carCode,
+        wifi: this.state.wifi,
+        autoorgear: this.state.autoorgear,
+        pricePerHour: this.state.pricePerHour,
+        capacity: this.state.capacity
     }
-  
     fetch('http://localhost:3001/user/changcar', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
@@ -230,8 +262,32 @@ class Profile extends React.Component {
         <input className='form-control' 
         type='text' value={this.state.carCode}  placeholder="enter car code"
             onChange={this.handelChangecarCode.bind(this)} />
-       
         </div>
+
+        <div className='form-group'>
+        <input className='form-control' 
+        type='text' value={this.state.wifi}  placeholder="there is any enternet inside the car ?"
+            onChange={this.handelChangewifi.bind(this)} />
+        </div>
+
+        <div className='form-group'>
+        <input className='form-control' 
+        type='text' value={this.state.autoorgear}  placeholder="enter car type (gear or outomatic ?)"
+            onChange={this.handelChangeautoorgeare.bind(this)} />
+        </div>
+
+        <div className='form-group'>
+        <input className='form-control' 
+        type='text' value={this.state.pricePerHour}  placeholder="How match price per hour"
+            onChange={this.handelChangepricePerHour.bind(this)} />
+        </div>
+
+        <div className='form-group'>
+        <input className='form-control' 
+        type='text' value={this.state.capacity}  placeholder="what is the capacity for the car"
+            onChange={this.handelChangecapacity.bind(this)} />
+        </div>
+
            <button 
            className='btn btn-g btn-primary btn-block' 
            type='submit' onClick={this.addCarData.bind(this)} >add a car</button>

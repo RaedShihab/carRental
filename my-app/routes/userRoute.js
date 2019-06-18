@@ -19,7 +19,7 @@ User.findAll()
 )
 // save user data inside database:
 router.post('/add', (req,res)=> {
-
+console.log(req.body);
  const data = {
      firstname: req.body.firstname,
      lastname: req.body.lastname,
@@ -133,7 +133,11 @@ if(user) {
     model: req.body.model,
     ragisterId: ragisterId,
     carCode: req.body.carCode,
-     companyName: companyName
+    companyName: companyName,
+    wifi: req.body.wifi,
+    autoorgear: req.body.autoorgear,
+    pricePerHour: req.body.pricePerHour,
+    capacity: req.body.capacity
 }
 console.log('here is the data',data)
 if(data.companyName !== null) {
