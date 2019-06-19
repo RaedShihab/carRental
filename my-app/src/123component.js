@@ -12,24 +12,23 @@
  import Parent from './profile';
   import Nav2 from './nav2'
   import Nav3 from './profileRoutes'
+import { MapContainer } from './MapContainer';
 
 
 class App1 extends React.Component {
 
   render(){
     return (
-      
       <div>
         <BrowserRouter>
         <Nav2/>
-
           <Route path='/com2' component={Com2} exact/>
           <Route path="/com1" component={Com1} exact />
-          {/* <Route path="/com3" component={Com3} exact /> */}
           <Route path="/profile" component={Profile} exact />
           <Route path="/Update" component={Update} exact />
           <Route path="/Delete" component={Delete} exact />
           <Route path="/ProfilesRoutes" component={Nav3}/>
+          {/* <Route path="/MapContainer" component={MapContainer}/> */}
           </BrowserRouter>
            </div>
     );

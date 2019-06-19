@@ -83,6 +83,7 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       address: '',
+      area: '',
       year: '',
       make: '',
       model: '',
@@ -105,6 +106,13 @@ class Profile extends React.Component {
      console.log(this.state.user_id, 'fsfsd')
      console.log(this.props.location.aboutProps.data,'kkkkkkkkkkkkkk')
   }
+
+  handelChangearea(e) {
+    this.setState({
+      area: e.target.value,
+    });
+    console.log(this.state.area);
+   }
 
   handelChangewifi(e) {
     this.setState({
@@ -194,6 +202,7 @@ class Profile extends React.Component {
 
     var body = {
         address: this.state.address,
+        area : this.state.area,
         year: this.state.year,
         make: this.state.make,
         model: this.state.model ,
@@ -236,6 +245,12 @@ class Profile extends React.Component {
             type='text' value={this.state.address}  placeholder="add adress"
             onChange={this.handelChangeaddress.bind(this)} />
             </div>
+
+            <div className='form-group'>
+            <input className='form-control'
+            type='text' value={this.state.area}  placeholder="add area"
+            onChange={this.handelChangearea.bind(this)} />
+            </div>
           
         <div className='form-group'>
         <input className='form-control' 
@@ -260,7 +275,7 @@ class Profile extends React.Component {
 
         <div className='form-group'>
         <input className='form-control' 
-        type='text' value={this.state.carCode}  placeholder="enter car code"
+        type='text' value={this.state.carCode}  placeholder="Car Plate Number, should be unique. "
             onChange={this.handelChangecarCode.bind(this)} />
         </div>
 
@@ -291,7 +306,6 @@ class Profile extends React.Component {
            <button 
            className='btn btn-g btn-primary btn-block' 
            type='submit' onClick={this.addCarData.bind(this)} >add a car</button>
-
           </div>
          </div>
          </div>

@@ -51,6 +51,12 @@ const Listcar = db.define('listcar', {
      },
      capacity: {
         type: Sequelize.STRING
+     },
+     area: {
+        type: Sequelize.STRING
+     },
+     carStatus: {
+        type: Sequelize.STRING
      }
 })
 

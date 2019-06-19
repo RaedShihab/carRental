@@ -99,18 +99,35 @@ console.log(req.body);
   Listcar.findAll({
       where : {
           address: req.body.address,
+          area : req.body.area
       }
   })
    .then(car => {
-       //console.log('hhhhhhhhhhhhhhh',car)
+       console.log('hhhhhhhhhhhhhhh',car)
        let filterdData = [];
        for(let i = 0; i<car.length;i++) {
           filterdData.push(car[i].dataValues)
        }
        //console.log('Array',filterdData);
        res.json({filterdData})
+       
  })
  })
+ // returning data details:
+ router.post('/carDetails', (req,res)=> {
+     console.log(req.body,'herrr')
+    Listcar.findOne({
+        where : {
+            id: req.body.id,
+            ragisterId: req.body.ragisterId
+        }
+    })
+     .then(car => {
+         console.log('hhhhhhh88hhhhhhhh',car.dataValues)
+         res.json({ car: car.dataValues})
+})
+})
+   
 
  router.post('/changcar', (req,res)=> {
     const  ragisterId= parseInt(req.body.user_id)
@@ -137,7 +154,8 @@ if(user) {
     wifi: req.body.wifi,
     autoorgear: req.body.autoorgear,
     pricePerHour: req.body.pricePerHour,
-    capacity: req.body.capacity
+    capacity: req.body.capacity,
+    area : req.body.area
 }
 console.log('here is the data',data)
 if(data.companyName !== null) {
@@ -177,6 +195,23 @@ Listcar.create(data)
       })
       .catch()
     })
+
+    router.put('/bookCar', (req,res)=> {
+        Listcar.update(
+            { 
+                carStatus: "Booked"
+            },
+            { where : {
+                id: req.body.id,
+                ragisterId: req.body.ragisterId,
+            }         }
+          )
+          .then(data => {
+              console.log('ddddddd',data)
+              res.json({data})
+          })
+          .catch()
+        })
 
     router.delete('/deletecar', (req,res)=> {
     Listcar.destroy(

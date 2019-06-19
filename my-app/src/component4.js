@@ -11,6 +11,8 @@ class Com4 extends React.Component {
     this.state = {
       address: '',
       carData:'',
+      carDetails: '',
+      area: '',
       dispalyCarList: false
     }
   }
@@ -23,11 +25,8 @@ class Com4 extends React.Component {
     e.preventDefault();
     var body = {
         address : this.state.address,
-        // year: this.state.year,
-        // make: this.state.make,
-        // model: this.state.model 
+        area : this.state.area,
     }
-    
     fetch('http://localhost:3001/user/search', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
@@ -43,7 +42,7 @@ class Com4 extends React.Component {
         carData : data.filterdData,
         dispalyCarList: true
       })
-       console.log('and here',this.state.carData.filterdData)
+       console.log('and here',this.state.carData)
     })
   }
 
@@ -51,6 +50,7 @@ class Com4 extends React.Component {
     e.preventDefault();
     console.log(carObj);
     console.log('oooooooooooookkkkkkkkkkkkkk')
+    const  body = carObj;
     fetch('http://localhost:3001/user/carDetails', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
@@ -58,13 +58,9 @@ class Com4 extends React.Component {
     }).then((response) => {
       return response.json();
     }).then((data) => {
-      // console.log(data);
-      this.setState({
-        resturants:data,
-        dispalyCarList: false,
-        displaDetailstList: true
-      })
-    });
+       console.log(data.car,'this is what you want');
+      this.props.history.push('/car-details', {res:data.car});
+    })  
   }
 
   
@@ -76,6 +72,13 @@ class Com4 extends React.Component {
         //  console.log(this.state.address);
    }
 
+   handelChangearea(e) {
+    this.setState({
+      area: e.target.value,
+    });
+       console.log(this.state.area);
+   }
+
     render(){
       return (
         
@@ -85,10 +88,16 @@ class Com4 extends React.Component {
             <div className='col-md-6 mt-5 mx-auto'>
           <h1 className="h3 mb-3font-weight-normal">Enter your location</h1>
           
-            <div className='form-group'>
+            <div className='form-group' >
             <input value={this.state.address}
             onChange={this.handelChangeaddress.bind(this)}
-            type="text" class="form-control form-control-lg" placeholder="Enter Location..." />
+            type="text" class="form-control form-control-lg" placeholder="Enter the city..." />
+            </div>
+
+            <div className='form-group' >
+            <input value={this.state.area}
+            onChange={this.handelChangearea.bind(this)}
+            type="text" class="form-control form-control-lg" placeholder="Enter area..." />
             </div>
 
            <button 
@@ -99,10 +108,6 @@ class Com4 extends React.Component {
             <CarList greeting={this.state.carData} sendCarDetails={this.sendCarDetails.bind(this)} /> :
               null
             }
-            {this.state.displaDetailstList ?
-                <CarDetails resturants={this.state.resturants}/> :
-                null
-              }
             
           </div>
          </div>
@@ -126,18 +131,20 @@ class Com4 extends React.Component {
                     <th scope="col" >make</th>
                     <th scope="col">model</th>
                     <th scope="col">company</th>
+                    <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {
                     this.props.greeting.map((car, i) => {
                       console.log('ggg',car)
-                      return <tr key={i} value={car}  >
+                      return <tr key={i} value={car}>
                         <td>{car.address}</td> 
                         <td >{car.year}</td>
                         <td >{car.make}</td>
                         <td >{car.model}</td>
-                        <td >{car.companyName}</td> <button  onClick={(event) => this.props.sendCarDetails(event, car)}>click</button>
+                        <td >{car.companyName}</td> 
+                        <td >{car.carStatus}</td> <button className='btn btn-g btn-primary btn-block' onClick={(event) => this.props.sendCarDetails(event, car)}>Show details</button>
                       </tr>
     
                     })
@@ -145,44 +152,10 @@ class Com4 extends React.Component {
                 </tbody>
               </table> : 'Sorry'
         }
-              }
+              
          </div>  
         )
       }
     }
-
-    class CarDetails extends React.Component {
-      render(props) {
     
-        return (
-          <div>{
-            this.props.resturants.length > 0 ?
-              <table >
-                <thead>
-                  <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Age</th>
-                    <th>Age</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    this.props.resturants.map((resturant, i) => {
-                      return <tr key={i} onClick={() => console.log("this is" + resturant.restName)}>
-    
-                        <td>{resturant.name}</td>
-                        <td>{resturant.phone}</td>
-                        <td>{resturant.address}</td>
-                      </tr>
-                    })
-                  }
-                </tbody>
-              </table> : null
-          }
-          </div>
-        )
-      }
-    }
-
     export default Com4;
