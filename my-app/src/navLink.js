@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 
 
+
 const Navgation =() =>{
 
     return (
@@ -11,7 +12,7 @@ const Navgation =() =>{
         <div>
 
            <div>
-           <button class="btn btn-primary btn btn-block btn-lg btn-primary" 
+           <button style={{position: 'relative', bottom:'95em'}} class="btn btn-primary btn btn-block btn-lg btn-primary" 
            type="submit" >
            <NavLink to="/com4" class="btn btn-primary"  exact>Search the car you need </NavLink>
            </button>
@@ -21,7 +22,8 @@ const Navgation =() =>{
 
         <div>   
          <div>
-    <button  class="btn btn-primary btn btn-block btn-lg btn-primary"
+    <button  style={{position: 'relative', bottom:'95em'}}
+    class="btn btn-primary btn btn-block btn-lg btn-primary"
     type="submit"
     >
        <NavLink to="/App1" class=" btn-primary" exact>For Companies </NavLink>
