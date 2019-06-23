@@ -7,18 +7,24 @@ const Navgation =() =>{
 
     return (
      <div>
+
         <div>
+
            <div>
-    <button >
-      <NavLink to="/com4" className='nav-link' exact>Search the car you need </NavLink>
-    </button>
+           <button class="btn btn-primary btn btn-block btn-lg btn-primary" 
+           type="submit" >
+           <NavLink to="/com4" class="btn btn-primary"  exact>Search the car you need </NavLink>
+           </button>
             </div>
+
         </div>
 
         <div>   
          <div>
-    <button>
-       <NavLink to="/App1" className='nav-link' exact>For Companies </NavLink>
+    <button  class="btn btn-primary btn btn-block btn-lg btn-primary"
+    type="submit"
+    >
+       <NavLink to="/App1" class=" btn-primary" exact>For Companies </NavLink>
     </button>  
        </div>
         </div>

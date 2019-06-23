@@ -7,7 +7,7 @@ class CarDetails extends React.Component {
         CarDetails: '',
       }
     }
-
+    
     bookCare(e) {
         e.preventDefault();
         var body = {
@@ -24,7 +24,8 @@ class CarDetails extends React.Component {
           return response.json();
         })
         .then((data) => {
-             console.log('come back from database',data);
+             console.log('come back from hhhhhhhhhdatabase',data);
+              this.props.history.push('/MapContainer', {res:this.state.CarDetails});
         //   this.setState({
         //     // carData : data.status,
         //     carData : data.filterdData,

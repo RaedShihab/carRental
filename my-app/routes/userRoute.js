@@ -145,6 +145,7 @@ if(user) {
     // console.log(companyName)
     data= {
     address: req.body.address,
+    area : req.body.area,
     year: req.body.year,
     make: req.body.make,
     model: req.body.model,
@@ -155,9 +156,11 @@ if(user) {
     autoorgear: req.body.autoorgear,
     pricePerHour: req.body.pricePerHour,
     capacity: req.body.capacity,
-    area : req.body.area
+    status: req.body.status,
+    companyLocationLat: req.body.companyLocationLat,
+    companyLocationLong: req.body.companyLocationLong
 }
-console.log('here is the data',data)
+console.log('ooooo',data, 'ooooooo')
 if(data.companyName !== null) {
 Listcar.create(data)
      .then(user => {
@@ -199,12 +202,13 @@ Listcar.create(data)
     router.put('/bookCar', (req,res)=> {
         Listcar.update(
             { 
-                carStatus: "Booked"
+                status: "Booked"
             },
             { where : {
                 id: req.body.id,
                 ragisterId: req.body.ragisterId,
-            }         }
+            }}
+            
           )
           .then(data => {
               console.log('ddddddd',data)

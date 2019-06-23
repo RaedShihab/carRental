@@ -1,83 +1,5 @@
 import React from 'react';
 
-
-// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-// require('node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css');
-
-// class Parent extends React.Component {
-//   constructor () {
-//     super()
-//     this.state = {
-//       isHidden: true
-//     }
-//   }
-//   toggleHidden () {
-//     this.setState({
-//       isHidden: !this.state.isHidden
-//     })
-//   }
-//   render () {
-//     return (
-//       <div>
-//         <button onClick={this.toggleHidden.bind(this)} >
-//           Change car data from here
-//         </button>
-//         {!this.state.isHidden && <Profile />}
-//         {!this.state.isHidden && <Update />}
-//         {!this.state.isHidden && <Delete />}
-//       </div>
-//     )
-//   }
-// }
-////////////////////////////
-// class Parent2 extends React.Component {
-//   constructor () {
-//     super()
-//     this.state = {
-//       isHidden: true
-//     }
-//   }
-//   toggleHidden () {
-//     this.setState({
-//       isHidden: !this.state.isHidden
-//     })
-//   }
-//   render () {
-//     return (
-//       <div>
-//         <button onClick={this.toggleHidden.bind(this)} >
-//           Click to show modal
-//         </button>
-//         {!this.state.isHidden && <Update />}
-//       </div>
-//     )
-//   }
-// }
-// /////////////////////////////////////
-// class Parent3 extends React.Component {
-//   constructor () {
-//     super()
-//     this.state = {
-//       isHidden: true
-//     }
-//   }
-//   toggleHidden () {
-//     this.setState({
-//       isHidden: !this.state.isHidden
-//     })
-//   }
-//   render () {
-//     return (
-//       <div>
-//         <button onClick={this.toggleHidden.bind(this)} >
-//           Click to show modal
-//         </button>
-//         {!this.state.isHidden && <Delete />}
-//       </div>
-//     )
-//   }
-//}
-//////////////////////////////
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -101,11 +23,35 @@ class Profile extends React.Component {
       autoorgear: '',
       pricePerHour: '',
       capacity: '',
+      status: '',
+      companyLocationLat: '',
+      companyLocationLong: ''
     }
     // const state1 = this.props
-     console.log(this.state.user_id, 'fsfsd')
-     console.log(this.props.location.aboutProps.data,'kkkkkkkkkkkkkk')
+    //  console.log(this.state.user_id, 'fsfsd')
+    //  console.log(this.props.location.aboutProps.data,'kkkkkkkkkkkkkk')
   }
+  
+  handelChangestatus(e) {
+    this.setState({
+      status: e.target.value,
+    });
+    console.log(this.state.status);
+   }
+
+   handelChangecompanyLocationLat(e) {
+    this.setState({
+      companyLocationLat: e.target.value,
+    });
+    console.log(this.state.companyLocationLat);
+   }
+
+   handelChangecompanyLocationLong(e) {
+     this.setState({
+      companyLocationLong: e.target.value
+     })
+     console.log(this.state.companyLocationLong)
+    }
 
   handelChangearea(e) {
     this.setState({
@@ -211,8 +157,12 @@ class Profile extends React.Component {
         wifi: this.state.wifi,
         autoorgear: this.state.autoorgear,
         pricePerHour: this.state.pricePerHour,
-        capacity: this.state.capacity
+        capacity: this.state.capacity,
+        status: this.state.status,
+        companyLocationLat: this.state.companyLocationLat,
+        companyLocationLong: this.state.companyLocationLong
     }
+    console.log(body)
     fetch('http://localhost:3001/user/changcar', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
@@ -301,6 +251,24 @@ class Profile extends React.Component {
         <input className='form-control' 
         type='text' value={this.state.capacity}  placeholder="what is the capacity for the car"
             onChange={this.handelChangecapacity.bind(this)} />
+        </div>
+
+        <div className='form-group'>
+        <input className='form-control' 
+        type='text' value={this.state.status}  placeholder="Enter available for the first time"
+            onChange={this.handelChangestatus.bind(this)} />
+        </div>
+
+        <div className='form-group'>
+        <input className='form-control' 
+        type='text' value={this.state.companyLocationLat}  placeholder="ex. Lat: 32.5565"
+            onChange={this.handelChangecompanyLocationLat.bind(this)} />
+        </div>
+
+        <div className='form-group'>
+        <input className='form-control' 
+        type='text' value={this.state.companyLocationLong}  placeholder="ex. Long: 32.5565"
+            onChange={this.handelChangecompanyLocationLong.bind(this)} />
         </div>
 
            <button 

@@ -23,6 +23,9 @@ const Listcar = db.define('listcar', {
     address: {
         type: Sequelize.STRING
     },
+    area: {
+        type: Sequelize.STRING
+     },
     year: {
         type: Sequelize.STRING
     },
@@ -52,12 +55,16 @@ const Listcar = db.define('listcar', {
      capacity: {
         type: Sequelize.STRING
      },
-     area: {
+     status: {
         type: Sequelize.STRING
      },
-     carStatus: {
-        type: Sequelize.STRING
-     }
+     companyLocationLat: {
+        type: Sequelize.DECIMAL
+     },
+     companyLocationLong: {
+        type: Sequelize.DECIMAL
+     },
+
 })
 
 Ragister.hasMany(Listcar); 

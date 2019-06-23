@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css'
-import ReactTable from 'react-table'
+
+import Marker from './MapContainer'
 // import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 // require('node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css');
 
@@ -84,6 +85,7 @@ class Com4 extends React.Component {
         
         
         <div className='container'>
+          
           <div className='row'>
             <div className='col-md-6 mt-5 mx-auto'>
           <h1 className="h3 mb-3font-weight-normal">Enter your location</h1>
@@ -144,7 +146,7 @@ class Com4 extends React.Component {
                         <td >{car.make}</td>
                         <td >{car.model}</td>
                         <td >{car.companyName}</td> 
-                        <td >{car.carStatus}</td> <button className='btn btn-g btn-primary btn-block' onClick={(event) => this.props.sendCarDetails(event, car)}>Show details</button>
+                        <td >{car.status}</td> <button className='btn btn-g btn-primary btn-block' onClick={(event) => this.props.sendCarDetails(event, car)}>Show details</button>
                       </tr>
     
                     })

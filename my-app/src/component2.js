@@ -73,9 +73,8 @@ class Com2 extends React.Component {
             onChange={this.handelChangepassword.bind(this)} />
        
         </div>
-           <button 
-           className='btn btn-g btn-primary btn-block' 
-           type='submit' onClick={this.RegistData.bind(this)} >Sign In</button>
+           <button type="button" class="btn btn-primary"
+            onClick={this.RegistData.bind(this)} >Sign In</button>
 
           </div>
          </div>
