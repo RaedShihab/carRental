@@ -12,9 +12,10 @@ const Navgation =() =>{
         <div>
 
            <div>
-           <button style={{position: 'relative', bottom:'95em'}} class="btn btn-primary btn btn-block btn-lg btn-primary" 
+           <button 
+           class="btn btn-primary btn btn-block btn-lg btn-primary" 
            type="submit" >
-           <NavLink to="/com4" class="btn btn-primary"  exact>Search the car you need </NavLink>
+           <NavLink to="/com4" class=" btn-primary" exact>Search the car you need </NavLink>
            </button>
             </div>
 
@@ -22,7 +23,8 @@ const Navgation =() =>{
 
         <div>   
          <div>
-    <button  style={{position: 'relative', bottom:'95em'}}
+         {/* style={{position: 'relative', bottom:'95em'}} */}
+    <button  
     class="btn btn-primary btn btn-block btn-lg btn-primary"
     type="submit"
     >
