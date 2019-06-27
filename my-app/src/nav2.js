@@ -8,7 +8,7 @@ const Nav2 =() =>{
     return (
 
         <div >
-         <button type="button">
+         <button type="button" > 
          <NavLink to="/com1" exact>sign up</NavLink> <br></br>
          </button>
 

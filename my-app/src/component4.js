@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css'
-
+import './App.css'
 import Marker from './MapContainer'
 // import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 // require('node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css');
@@ -82,21 +82,23 @@ class Com4 extends React.Component {
 
     render(){
       return (
-        
-        
-        <div className='container'>
-          
-          <div className='row'>
-            <div className='col-md-6 mt-5 mx-auto'>
-          <h1 className="h3 mb-3font-weight-normal">Enter your location</h1>
-          
-            <div className='form-group' >
-            <input value={this.state.address}
+        <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          {/* <div class="card-img-left d-none d-md-flex"> */}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Enter your location</h5>
+            <form class="form-signin">
+               
+             <div className='form-label-group' >
+             <input value={this.state.address}
             onChange={this.handelChangeaddress.bind(this)}
             type="text" class="form-control form-control-lg" placeholder="Enter the city..." />
             </div>
 
-            <div className='form-group' >
+            <div className='form-label-group' >
             <input value={this.state.area}
             onChange={this.handelChangearea.bind(this)}
             type="text" class="form-control form-control-lg" placeholder="Enter area..." />
@@ -110,10 +112,11 @@ class Com4 extends React.Component {
             <CarList greeting={this.state.carData} sendCarDetails={this.sendCarDetails.bind(this)} /> :
               null
             }
-            
+            </form>
           </div>
-         </div>
-         </div>
+        </div>
+      </div>
+    </div>
       );
       }
     }
@@ -122,18 +125,18 @@ class Com4 extends React.Component {
     class CarList extends React.Component {
       render(props) {
         return (
-          <div>
+          <div >
                {
             this.props.greeting.length > 0 ?
-              <table class="table table-bordered" >
+              <table class="table table-bordered table-striped Tabel btn btn-g "  style={{ "width" : "100000px"}}> 
                 <thead class="grey lighten-2">
-                  <tr> 
-                    <th scope="col" >address</th> 
-                    <th scope="col">year</th>
-                    <th scope="col" >make</th>
-                    <th scope="col">model</th>
-                    <th scope="col">company</th>
-                    <th scope="col">Status</th>
+                  <tr className="TheMainInfo">  
+                    <th scope="col MealsR" >address</th> 
+                    <th scope="col MealsR">year</th>
+                    <th scope="col MealsR" >make</th>
+                    <th scope="col MealsR">model</th>
+                    <th scope="col MealsR">company</th>
+                    <th scope="col MealsR">Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -141,7 +144,7 @@ class Com4 extends React.Component {
                     this.props.greeting.map((car, i) => {
                       console.log('ggg',car)
                       return <tr key={i} value={car}>
-                        <td>{car.address}</td> 
+                        <td >{car.address}</td> 
                         <td >{car.year}</td>
                         <td >{car.make}</td>
                         <td >{car.model}</td>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './App.css';
 
 
 
@@ -75,56 +75,71 @@ class Com1 extends React.Component {
 
     render(){
       return (
-        
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-6 mt-5 mx-auto'>
-              <h1 className='h3 mb-3font-weight-normal'>Please Signup</h1>
-              <div className='form-group'>
-                <label htmlFor='first_name'>First Name</label>
-              <input className='form-control'
-             type='text' value={this.state.firstname}  
-            onChange={this.handelChangefirstname.bind(this)}
+        <body>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-signin flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-center">Register</h5>
+                  <form class="form-signin">
+                    <div class="form-label-group">
+                    <input className='form-control'
+              type='text' value={this.state.firstname}  
+             onChange={this.handelChangefirstname.bind(this)}
             />
-              </div>
-            <div className='form-group'>
-            <label htmlFor='last_name'>Last Name</label>
-            <input className='form-control'
-             type='text' value={this.state.lastname}  
-            onChange={this.handelChangelastname.bind(this)}
-            />
-            </div>
-            <div  className='form-group'>
-            <label htmlFor='password'>Passwords</label>
-            <input className='form-control'
-             type='password' value={this.state.password}  
-            onChange={this.handelChangepassword.bind(this)}
-            />
-            </div>
-            <div className='form-group'>
-            <label htmlFor='first_name'>Email Adress</label>
-            <input className='form-control'
-             type='email' value={this.state.email} 
-            onChange={this.handelChangeemail.bind(this)}
-            />
-            </div>
-            <div className='form-group'>
-            <label htmlFor='phone_number'>Phone Number</label>
-            <input className='form-control'
-             type='number' value={this.state.phonenumber}  
-            onChange={this.handelChangephone.bind(this)}
-            />
-            </div> 
-            
-            
-           
-           <button className='btn btn-g btn-primary btn-block'
-            type='submit' onClick={this.sendToServer.bind(this)} >Signup</button>
+                      <label for="inputUserame">First Name</label>
+                    </div>
+      
+                    <div class="form-label-group">
+                    <input className='form-control'
+              type='text' value={this.state.lastname}  
+             onChange={this.handelChangelastname.bind(this)}
+             />
+                      <label for="inputEmail">Last Name</label>
+                    </div>
+                    
+                    
+      
+                    <div class="form-label-group">
+                    <input className='form-control'
+              type='password' value={this.state.password}  
+             onChange={this.handelChangepassword.bind(this)}
+             />
+                      <label for="inputPassword">Password</label>
+                    </div>
+                    
+                    <div class="form-label-group">
+                    <input className='form-control'
+              type='email' value={this.state.email} 
+             onChange={this.handelChangeemail.bind(this)}
+             />
+                      <label for="inputEmail">Email</label>
+                    </div>
 
+                    <div class="form-label-group">
+                    <input className='form-control'
+              type='number' value={this.state.phonenumber}  
+             onChange={this.handelChangephone.bind(this)}
+             />
+                       <label for="inputConfirmPassword">Phone Number</label>
+                    </div>
+      
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={this.sendToServer.bind(this)}>Register</button>
+                    
+                    
+                    <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit" ><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+                    <a class="d-block text-center mt-2 small" href="/com2">Sign In</a>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
-          </div>
-          </div>
-          
+        </div>
+      </body>
+       
       );
       }
     }

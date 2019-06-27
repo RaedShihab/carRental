@@ -55,31 +55,47 @@ class Com2 extends React.Component {
 
     render(){
       return (
-        <div>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-6 mt-5 mx-auto'>
-          <h1 className="h3 mb-3font-weight-normal">Please Sign In</h1>
-          
-            <div className='form-group'>
-            <input className='form-control'
-            type='text' value={this.state.email}  placeholder="Email"
-            onChange={this.handelChangeemail.bind(this)} />
-            </div>
-          
-        <div className='form-group'>
-        <input className='form-control' 
-        type='text' value={this.state.password}  placeholder="Password"
-            onChange={this.handelChangepassword.bind(this)} />
-       
-        </div>
-           <button type="button" class="btn btn-primary"
-            onClick={this.RegistData.bind(this)} >Sign In</button>
 
+        <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex">
           </div>
-         </div>
-         </div>
-         </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+            <form class="form-signin">
+
+              <div class="form-label-group">
+                <input type="" id="inputEmail" class="form-control" placeholder="Email address" required 
+                 onChange={this.handelChangeemail.bind(this)}
+                 value={this.state.email}
+                /> 
+                <label for="inputEmail">Email address</label>
+              </div>
+              
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required 
+                 onChange={this.handelChangepassword.bind(this)}
+                 value={this.state.password}
+                />
+                <label for="inputPassword">Password</label>
+              </div>
+              
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+               onClick={this.RegistData.bind(this)}
+              >Sign In</button>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
       );
       }
     }
