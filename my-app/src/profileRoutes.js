@@ -38,12 +38,12 @@ import {NavLink} from 'react-router-dom';
           <img src="//placehold.it/100" class="avatar img-circle" alt="avatar"/>
           <h6>Upload a different photo...</h6>
           
-          <input type="file" class="form-control"/>
+          <input type="file" ctype="button" class="btn btn-secondary"/>
         </div>
       </div>
       
       <div>
-      <button>
+      <button type="button"  class="btn btn-primary" >
           <NavLink to={{
              pathname: '/profile',
              aboutProps: {
@@ -53,7 +53,7 @@ import {NavLink} from 'react-router-dom';
          className='nav-link' exact>Add</NavLink> <br></br>
          </button>
 
-         <button>
+         <button class="btn btn-primary">
          <NavLink to={{ 
              pathname: '/Update',
              aboutProps: {
@@ -63,7 +63,7 @@ import {NavLink} from 'react-router-dom';
          className='nav-link' exact>Update</NavLink> <br></br>
          </button> 
 
-         <button>
+         <button class="btn btn-primary">
          <NavLink to={{ 
              pathname: '/Delete',
              aboutProps: {
