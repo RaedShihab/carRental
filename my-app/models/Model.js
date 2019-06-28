@@ -41,7 +41,7 @@ const Listcar = db.define('listcar', {
     },
     companyName: { 
 
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
      },
      wifi: {
         type: Sequelize.STRING
