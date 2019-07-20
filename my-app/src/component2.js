@@ -28,13 +28,13 @@ class Com2 extends React.Component {
     }).then((data) => {
       //console.log('come back from server',data);
       if(data.message === 'succes') {
-        //  console.log(data.message, data.id)
+          console.log(data.message, data.id.id,data.id.phonenumber,  'iiiiiiiiiiiiii')
         // this.props.setUserId(data.id);
           this.props.history.push('/ProfilesRoutes', {res:data.id});
         
       }
       else {
-          this.props.history.push('/com1');
+          this.props.history.push('/signup');
       }
       
     });

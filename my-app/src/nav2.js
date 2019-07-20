@@ -9,11 +9,11 @@ const Nav2 =() =>{
 
         <div >
          <button type="button" > 
-         <NavLink to="/com1" exact>sign up</NavLink> <br></br>
+         <NavLink to="/signup" exact>sign up</NavLink> <br></br>
          </button>
 
        <button type="button" >
-       <NavLink to="/com2" exact>Login</NavLink> <br></br>
+       <NavLink to="/signin" exact>Login</NavLink> <br></br>
         </button> 
        </div>
 

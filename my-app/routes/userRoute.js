@@ -74,7 +74,7 @@ console.log(req.body);
             let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                 expiresIn: 1440
             })
-            res.json({message:'succes',id:user.id})
+            res.json({message:'succes',id:user})
             console.log('success login')
         } else {
             res.json('failed')

@@ -44,27 +44,28 @@ class HomePage extends React.Component {
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
             <div class="features-icons-icon d-flex">
-              <i class="icon-screen-desktop m-auto text-primary"></i>
+              <i class="fas fa-car m-auto text-primary"></i>
             </div>
-            <h3>Fully Responsive</h3>
-            <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
+            <h3>Car rent becomes easier!</h3>
+            <p class="lead mb-0">Make a connection between Companieis and clients</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
             <div class="features-icons-icon d-flex">
-              <i class="icon-layers m-auto text-primary"></i>
+              <i class="fas fa-building m-auto text-primary"></i>
             </div>
-            <h3>For Rent company</h3>
-            <p class="lead mb-0">Make a profile and start enter your car datas</p>
+            <h3>For car Rental companies</h3>
+            <p class="lead mb-0">Make a profile and start enter your car data</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-0 mb-lg-3">
             <div class="features-icons-icon d-flex">
-              <i class="icon-check m-auto text-primary"></i>
+              <i class="fa fa-user m-auto text-primary"></i>
+              
             </div>
-            <h3>Easy to Use</h3>
+            <h3>For normal user</h3>
             <p class="lead mb-0">If you are normal user just put the city and the area that you want!</p>
           </div>
         </div>
@@ -78,24 +79,24 @@ class HomePage extends React.Component {
       <div class="row no-gutters">
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style={{backgroundImage: 'url(https://www.enterprise.com/content/dam/ent-brand/GettyImages-453470317_1920x1080.jpg)'}}></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-          <h2>Fully Responsive Design</h2>
-          <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+          <h2>How to rent a car!</h2>
+          <p class="lead mb-0">Just put your city and the area that you want and you will see all the cars around you with all necessary information about these cars, so after that you can choose what ever you want </p>
         </div>
       </div>
 
       <div class="row no-gutters">
         <div class="col-lg-6 text-white showcase-img" style={{backgroundImage: 'url(https://www.jodhpurtaxiwala.com/wp-content/uploads/2019/02/default-insurance-tips.jpg)'}}></div>
         <div class="col-lg-6 my-auto showcase-text">
-          <h2>Updated For Bootstrap 4</h2>
-          <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+          <h2>How to get the car!</h2>
+          <p class="lead mb-0">After you decide the car that you want you can book it, call the company, and go to its location and you will see company employee with the key so you can begin the ride right now</p>
         </div>
       </div>
 
       <div class="row no-gutters">
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style={{backgroundImage: 'url(https://media.istockphoto.com/videos/woman-getting-new-car-keys-video-id847698878?s=640x640)'}}></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-          <h2>Fully Responsive Design</h2>
-          <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+          <h2>After you finish the ride!</h2>
+          <p class="lead mb-0">after you finish the ride, please return it bace to the same location and you also will see the employee there so you can gine hem the key!</p>
         </div>
       </div>
 

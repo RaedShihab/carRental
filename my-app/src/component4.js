@@ -49,8 +49,8 @@ class Com4 extends React.Component {
 
   sendCarDetails(e, carObj) {
     e.preventDefault();
-    console.log(carObj);
-    console.log('oooooooooooookkkkkkkkkkkkkk')
+    //console.log(carObj);
+    //console.log('oooooooooooookkkkkkkkkkkkkk')
     const  body = carObj;
     fetch('http://localhost:3001/user/carDetails', {
       method: 'POST',
@@ -59,7 +59,7 @@ class Com4 extends React.Component {
     }).then((response) => {
       return response.json();
     }).then((data) => {
-       console.log(data.car,'this is what you want');
+       //console.log(data.car,'this is what you want');
       this.props.history.push('/car-details', {res:data.car});
     })  
   }
@@ -128,7 +128,7 @@ class Com4 extends React.Component {
           <div >
                {
             this.props.greeting.length > 0 ?
-              <table class="table table-bordered table-striped Tabel btn btn-g "  style={{ "width" : "100000px"}}> 
+              <table class="table table-bordered table-striped Tabel"  style={{ "width" : "225px"}}> 
                 <thead class="grey lighten-2">
                   <tr className="TheMainInfo">  
                     <th scope="col MealsR" >address</th> 
@@ -136,6 +136,7 @@ class Com4 extends React.Component {
                     <th scope="col MealsR" >make</th>
                     <th scope="col MealsR">model</th>
                     <th scope="col MealsR">company</th>
+                    <th scope="col MealsR">phone number</th>
                     <th scope="col MealsR">Status</th>
                   </tr>
                 </thead>
@@ -148,7 +149,8 @@ class Com4 extends React.Component {
                         <td >{car.year}</td>
                         <td >{car.make}</td>
                         <td >{car.model}</td>
-                        <td >{car.companyName}</td> 
+                        <td >{car.companyName}</td>
+                        <td >{car.carCode}</td>
                         <td >{car.status}</td> <button className='btn btn-g btn-primary btn-block' onClick={(event) => this.props.sendCarDetails(event, car)}>Show details</button>
                       </tr>
     

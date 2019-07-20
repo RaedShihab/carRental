@@ -47,17 +47,17 @@ render(){
       </a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" href="/com4">Search by city and area</a>
+      <a class="nav-link" href="/search">Search by city and area</a>
     </li>
     {/* <li class="nav-item active">
       <a class="nav-link" href="/App1">For Car Rental companeis</a>
     </li> */}
 
     <li class="nav-item active">
-      <a class="nav-link" href="/com1">Sign Up</a>
+      <a class="nav-link" href="/signup">Sign Up</a>
       </li>
       <li class="nav-item active">
-      <a class="nav-link" href="/com2">Sign In</a>
+      <a class="nav-link" href="/signin">Sign In</a>
     </li>
     
 
@@ -69,21 +69,14 @@ render(){
         </div>
       <div>
       <div>
-      
-        {/* <div>
-        <NavLink to="/" class=" btn-primary" exact>Home Page </NavLink><br></br>
-        <NavLink to="/com4" class=" btn-primary" exact>Search the car you need </NavLink><br></br>
-        <NavLink to="/App1" class=" btn-primary" exact>For Companies </NavLink><br></br>
-        </div> */}
-
        <div>  
            <Route path="/" component={HomePage} exact />
-           <Route path="/com4" component={Com4} exact />
+           <Route path="/search" component={Com4} exact />
            <Route path="/App1" component={App1} exact />
            <Route path="/MapContainer" component={MapContainer} exact/>
            <Route path="/car-details" component={CarDetails} exact />
-           <Route path='/com2' component={Com2} exact/>
-          <Route path="/com1" component={Com1} exact />
+           <Route path='/signin' component={Com2} exact/>
+          <Route path="/signup" component={Com1} exact />
           <Route path="/profile" component={Profile} exact />
           <Route path="/Update" component={Update} exact />
           <Route path="/Delete" component={Delete} exact />

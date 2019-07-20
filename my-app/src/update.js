@@ -11,6 +11,7 @@ class Update extends React.Component {
         model: '',
         carCode: '',
         user_id: '',
+        status: '',
   
         updateaddress: '',
         updateyear: '',
@@ -32,6 +33,13 @@ getId() {
     } , ()=> console.log(this.props.location.aboutProps.data, 'uuuuuu') )
 
 }
+
+handelstatus(e) {
+  this.setState({
+    status: e.target.status,
+  });
+        console.log(this.state.status);
+ }
 
 handelForigenId(e) {
   this.setState({
@@ -92,7 +100,9 @@ componentDidMount() {
         updatemake: this.state.updatemake,
         updatemodel: this.state.updatemodel,
           user_id: this.state.user_id,
-          carCode2: this.state.carCode2
+          carCode2: this.state.carCode2,
+          status: this.state.status
+
       }
       
       fetch('http://localhost:3001/user/updatecar', {
@@ -145,11 +155,18 @@ componentDidMount() {
           <input className='form-control' 
           type='text' value={this.state.updatemodel}  placeholder="updated Model"
             onChange={this.handelupdatedmodel.bind(this)} />
-  
+            </div>
+          <div>
           <input className='form-control' 
           type='text' value={this.state.carCode2}  placeholder="enter car code"
             onChange={this.handelChangecarCode2.bind(this)} />
   
+          </div>
+
+          <div>
+          <input className='form-control' 
+          type='text' value={this.state.status}  placeholder="inter new status"
+            onChange={this.handelstatus.bind(this)} />
           </div>
   
           <button 

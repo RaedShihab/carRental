@@ -62,7 +62,7 @@ class Com1 extends React.Component {
     }).then((response) => {
       
     }).then((data) => {
-      this.props.history.push('/com2')
+      this.props.history.push('/signin')
       console.log('come back from server',data);
       // this.setState({
       //   any: data,
