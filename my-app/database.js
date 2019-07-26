@@ -13,7 +13,6 @@
 // module.exports.Sequelize = Sequelize;
 
 const Sequelize = require("sequelize");
-
 const db = new Sequelize("raeddtabase", "root", "Raed1992", {
   host: "localhost",
   dialect: "mysql"
