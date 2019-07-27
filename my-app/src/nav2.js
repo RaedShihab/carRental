@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+// making links for signup and signin
 const Nav2 = () => {
   return (
     <div>

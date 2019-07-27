@@ -1,5 +1,5 @@
 import React from "react";
-
+// component to allow company update car details
 class Update extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +22,7 @@ class Update extends React.Component {
     // const state1 = this.props
     // console.log(this.state.user_id, 'fsfsd')
   }
-
+  // update user id (company id) every time rendering the component
   getId() {
     this.setState(
       {
@@ -50,6 +50,8 @@ class Update extends React.Component {
     // console.log(this.props.history.location.state.res)
     this.getId();
   }
+
+  // making handels changes for all input texts
 
   handelupdatedaddress(e) {
     this.setState({
@@ -85,7 +87,7 @@ class Update extends React.Component {
     });
     console.log(this.state.carCode2);
   }
-
+  //function to update car data in the database
   updateCarData(e) {
     e.preventDefault();
     var body = {

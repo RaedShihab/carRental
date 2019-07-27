@@ -1,8 +1,5 @@
 import React from "react";
-import App from "./App";
-import Navgation from "./navLink";
-import { BrowserRouter, Route, NavLink } from "react-router-dom";
-
+// homepage contain header and footer and main information the website
 class HomePage extends React.Component {
   constructor(props) {
     super(props);

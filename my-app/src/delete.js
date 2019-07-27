@@ -4,22 +4,10 @@ class Delete extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      address: "",
-      year: "",
-      make: "",
-      model: "",
-      carCode: "",
-      user_id: "",
-
-      updateaddress: "",
-      updateyear: "",
-      updatemake: "",
-      updatemodel: "",
-      carCode2: "",
       carCode3: ""
     };
   }
-
+  // update user id (company id) every time rendering the component
   getId() {
     this.setState(
       {
@@ -47,7 +35,7 @@ class Delete extends React.Component {
     });
     console.log(this.state.carCode3);
   }
-
+  //function to send car code and user(company id) id to delete the car
   deleteCarData(e) {
     e.preventDefault();
     var body = {

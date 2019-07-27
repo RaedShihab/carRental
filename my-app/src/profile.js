@@ -141,7 +141,7 @@ class Profile extends React.Component {
     });
     console.log(this.state.carCode);
   }
-
+  // sending car details to backend to save it in database and create a new car
   addCarData(e) {
     e.preventDefault();
 

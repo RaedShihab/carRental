@@ -11,6 +11,7 @@ import Update from "./update";
 import Delete from "./delete";
 import Nav3 from "./profileRoutes";
 import Signup from "./signup";
+// app component contain navbar and routes for all the components
 class App extends React.Component {
   constructor(props) {
     super(props);

@@ -5,7 +5,7 @@ const mapStyles = {
   width: "100%",
   height: "100%"
 };
-
+// this component to show the location of the booked car
 class MapContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ class MapContainer extends React.Component {
       }
     };
   }
-
+  // recieve the location and update it every time rendering the component
   getId() {
     this.setState(
       {
@@ -67,10 +67,6 @@ class MapContainer extends React.Component {
           lat: latt,
           lng: lngg
         }}
-        // initialCenter={{
-        //   lat: -1.2884,
-        //   lng: 36.8233
-        //  } }
       >
         <Marker onClick={this.onMarkerClick} name={"Khalda Altqwa mosque"} />
         <InfoWindow
@@ -88,5 +84,5 @@ class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDN8t7e81boYUB8xVRQJCfgAtnC9a6jZPk  "
+  apiKey: "AIzaSyDN8t7e81boYUB8xVRQJCfgAtnC9a6jZPk"
 })(MapContainer);
