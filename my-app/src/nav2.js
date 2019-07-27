@@ -1,24 +1,24 @@
- import React  from 'react';
- import {NavLink} from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
+const Nav2 = () => {
+  return (
+    <div>
+      <button type="button">
+        <NavLink to="/signup" exact>
+          sign up
+        </NavLink>{" "}
+        <br></br>
+      </button>
 
-
-const Nav2 =() =>{
-
-    return (
-
-        <div >
-         <button type="button" > 
-         <NavLink to="/signup" exact>sign up</NavLink> <br></br>
-         </button>
-
-       <button type="button" >
-       <NavLink to="/signin" exact>Login</NavLink> <br></br>
-        </button> 
-       </div>
-
-
-    )
-}
+      <button type="button">
+        <NavLink to="/signin" exact>
+          Login
+        </NavLink>{" "}
+        <br></br>
+      </button>
+    </div>
+  );
+};
 
 export default Nav2;

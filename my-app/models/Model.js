@@ -1,5 +1,6 @@
+// making models
 const { db, Sequelize } = require("../database");
-
+// Ragister model to add user information for signup to Ragister table
 const Ragister = db.define("ragister", {
   firstname: {
     type: Sequelize.STRING
@@ -17,7 +18,7 @@ const Ragister = db.define("ragister", {
     type: Sequelize.STRING
   }
 });
-
+// Listcar model to add car data to batabase inside Listcar table
 const Listcar = db.define("listcar", {
   address: {
     type: Sequelize.STRING

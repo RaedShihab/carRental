@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-
-class Com1 extends React.Component {
+//making signup component
+class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ class Com1 extends React.Component {
       phonenumber: ""
     };
   }
-  //handel chenge:
+  //making handel chenges for all input texts:
   handelChangefirstname(e) {
     this.setState({
       firstname: e.target.value
@@ -43,7 +43,7 @@ class Com1 extends React.Component {
     });
     console.log(this.state.phonenumber);
   }
-  ////////////////////////////////
+  // when click on register this function will be excute to user information to database
   sendToServer(e) {
     e.preventDefault();
     var body = {
@@ -158,4 +158,4 @@ class Com1 extends React.Component {
   }
 }
 
-export default Com1;
+export default Signup;
