@@ -1,9 +1,10 @@
 # car rental project
-the main idea is a car rental web site, where I can make a connection between normal client that want to rent a car and between the company that has cars and it want to rent this cars, so this serves for both.
+App to make life easier for car rental companies and its clients. 
+the company can signup and add thier cars with all details and the client can search car by city and area.
 
-## the stack
-I used react for front end, beacuse it is a single page website and I have some components and I want to render quiqly and interact with each other,
-for backend I used express server with mysql database beacuse I need relations between tables.
+## Table of Contents
+1. Application_Flow https://github.com/RaedShihab/carRental
+
 
 ## requairments 
 - npm install
