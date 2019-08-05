@@ -15,26 +15,26 @@ Fork the repo to your account and Clone the it to your computer with the remote 
 
 ## Requirements
 
-Node v10.15.3
-MySQL 5.7.x
+1. Node v10.15.3
+2. MySQL 5.7.x
 
 ##Installing_Dependencies
 
-cd my-app 
-npm install
+1. cd my-app 
+2. npm install
 
 ##Running_the_server
 
-cd my-app
-npm run server
+1. cd my-app
+2. npm run server
 
 ##Running_the_Front-End server
 
-cd my-app
-npm start
+1. cd my-app
+2. npm start
 
 ##Stack
 
-ReactJS 
-Node Express server
-Mysql database
+1. ReactJS 
+2. Node Express server
+3. Mysql database
