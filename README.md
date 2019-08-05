@@ -11,7 +11,7 @@ company can also update car data like price or status, or adding new feature to 
 second kind of users (the client) can enter the website and start search for the car by city and area, a list of cars will show with some details, now clint can click "more details" to show company number with more details about this car, if clint want to rent this car he can click "Book" to show the location of the car.
 
 ## Usage
-Fork the repo to your account and Clone the it to your computer with the remote link https://github.com/RaedShihab/carRental
+Fork the repo to your account and Clone it to your computer with the remote link https://github.com/RaedShihab/carRental
 
 ## Requirements
 
