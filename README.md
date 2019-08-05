@@ -19,15 +19,15 @@ MySQL 5.7.x
 
 ## Development
 
-###Installing Dependencies
+##Installing Dependencies
 cd my-app 
 npm install
 
-###Running the server
+##Running the server
 cd my-app
 npm run server
 
-###Running the Front-End server
+##Running the Front-End server
 cd my-app
 npm start
 
