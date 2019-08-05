@@ -1,4 +1,4 @@
-# car rental project
+## car rental project
 
 App to make life easier for car rental companies and its clients.
 the company can signup and add thier cars with all details and the client can search car by city and area.
