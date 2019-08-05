@@ -3,7 +3,7 @@
 App to make life easier for car rental companies and its clients.
 the company can signup and add thier cars with all details and the client can search car by city and area.
 
-## Application_Flow:
+## Application Flow:
 first kind of users (car rent company) can signup, login, enter the account and start adding the cars with all details     about each car.
 
 company can also update car data like price or status, or adding new feature to the car, or even delete the car.
@@ -18,17 +18,17 @@ Fork the repo to your account and Clone the it to your computer with the remote 
 1. Node v10.15.3
 2. MySQL 5.7.x
 
-## Installing_Dependencies
+## Installing Dependencies
 
 1. cd my-app 
 2. npm install
 
-## Running_the_server
+## Running the server
 
 1. cd my-app
 2. npm run server
 
-## Running_the_Front-End server
+## Running the Front-End server
 
 1. cd my-app
 2. npm start
