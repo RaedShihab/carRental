@@ -14,22 +14,27 @@ second kind of users (the client) can enter the website and start search for the
 Fork the repo to your account and Clone the it to your computer with the remote link https://github.com/RaedShihab/carRental
 
 ## Requirements
+
 Node v10.15.3
 MySQL 5.7.x
 
 ##Installing Dependencies
+
 cd my-app 
 npm install
 
 ##Running the server
+
 cd my-app
 npm run server
 
 ##Running the Front-End server
+
 cd my-app
 npm start
 
 ##Stack
+
 ReactJS 
 Node Express server
 Mysql database
