@@ -18,17 +18,17 @@ Fork the repo to your account and Clone the it to your computer with the remote 
 Node v10.15.3
 MySQL 5.7.x
 
-##Installing Dependencies
+##Installing_Dependencies
 
 cd my-app 
 npm install
 
-##Running the server
+##Running_the_server
 
 cd my-app
 npm run server
 
-##Running the Front-End server
+##Running_the_Front-End server
 
 cd my-app
 npm start
