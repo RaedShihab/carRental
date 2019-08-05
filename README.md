@@ -3,8 +3,6 @@
 App to make life easier for car rental companies and its clients.
 the company can signup and add thier cars with all details and the client can search car by city and area.
 
-# Table of Contents
-
 ## Application_Flow:
 first kind of users (car rent company) can signup, login, enter the account and start adding the cars with all details     about each car.
 
