@@ -24,14 +24,15 @@ class Update extends React.Component {
   }
   // update user id (company id) every time rendering the component
   getId() {
-    this.setState(
-      {
-        user_id: this.props.location.aboutProps.data
-      },
-      () => console.log(this.props.location.aboutProps.data, "uuuuuu")
-    );
+    this.setState({
+      user_id: this.props.location.aboutProps.data
+    });
   }
-
+  componentDidMount() {
+    // console.log(this.props.history.location.state.res)
+    this.getId();
+  }
+  // Handle Change:
   handelstatus(e) {
     this.setState({
       status: e.target.status
@@ -46,47 +47,14 @@ class Update extends React.Component {
     console.log(this.state.user_id);
   }
 
-  componentDidMount() {
-    // console.log(this.props.history.location.state.res)
-    this.getId();
-  }
+  //// making handels changes for all inputs //////////////////////////////////////
 
-  // making handels changes for all input texts
-
-  handelupdatedaddress(e) {
+  handelHange = e => {
+    let value = e.target.name;
     this.setState({
-      updateaddress: e.target.value
+      [value]: e.target.value
     });
-    console.log(this.state.updateaddress);
-  }
-
-  handelupdatedyear(e) {
-    this.setState({
-      updateyear: e.target.value
-    });
-    console.log(this.state.updateyear);
-  }
-
-  handelupdatedmake(e) {
-    this.setState({
-      updatemake: e.target.value
-    });
-    console.log(this.state.updatemake);
-  }
-
-  handelupdatedmodel(e) {
-    this.setState({
-      updatemodel: e.target.value
-    });
-    console.log(this.state.updatemodel);
-  }
-
-  handelChangecarCode2(e) {
-    this.setState({
-      carCode2: e.target.value
-    });
-    console.log(this.state.carCode2);
-  }
+  };
   //function to update car data in the database
   updateCarData(e) {
     e.preventDefault();
@@ -122,7 +90,7 @@ class Update extends React.Component {
 
             <input
               className="form-control"
-              onChange={this.handelForigenId.bind(this)}
+              onChange={this.handelHange}
               type="Number"
               value={this.state.user_id}
             />
@@ -130,55 +98,61 @@ class Update extends React.Component {
             {/* {console.log(this.state.user_id)} */}
             <div className="form-group">
               <input
+                name="updateaddress"
                 className="form-control"
                 type="text"
                 value={this.state.updateaddress}
                 placeholder="updated adress"
-                onChange={this.handelupdatedaddress.bind(this)}
+                onChange={this.handelHange}
               />
             </div>
 
             <div className="form-group">
               <input
+                name="updateyear"
                 className="form-control"
                 type="text"
                 value={this.state.updateyear}
                 placeholder="updated Year"
-                onChange={this.handelupdatedyear.bind(this)}
+                onChange={this.handelHange}
               />
             </div>
 
             <div className="form-group">
               <input
+                name="updatemake"
                 className="form-control"
                 type="text"
                 value={this.state.updatemake}
                 placeholder="updated Make"
-                onChange={this.handelupdatedmake.bind(this)}
+                onChange={this.handelHange}
               />
             </div>
 
             <div className="form-group">
               <input
+                name="updatemodel"
                 className="form-control"
                 type="text"
                 value={this.state.updatemodel}
                 placeholder="updated Model"
-                onChange={this.handelupdatedmodel.bind(this)}
+                onChange={this.handelHange}
               />
             </div>
             <div>
               <input
+                name="carCode2"
                 className="form-control"
                 type="text"
                 value={this.state.carCode2}
                 placeholder="enter car code"
-                onChange={this.handelChangecarCode2.bind(this)}
+                onChange={this.handelHange}
               />
             </div>
 
             <div>
               <input
+                name="status"
                 className="form-control"
                 type="text"
                 value={this.state.status}

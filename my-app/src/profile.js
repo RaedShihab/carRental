@@ -28,63 +28,14 @@ class Profile extends React.Component {
       companyLocationLat: "",
       companyLocationLong: ""
     };
-    // const state1 = this.props
-    //  console.log(this.state.user_id, 'fsfsd')
-    //  console.log(this.props.location.aboutProps.data,'kkkkkkkkkkkkkk')
   }
 
-  handelChangestatus(e) {
+  handelChang = e => {
+    let value = e.target.name;
     this.setState({
-      status: e.target.value
+      [value]: e.target.value
     });
-    console.log(this.state.status);
-  }
-
-  handelChangecompanyLocationLat(e) {
-    this.setState({
-      companyLocationLat: e.target.value
-    });
-    console.log(this.state.companyLocationLat);
-  }
-
-  handelChangecompanyLocationLong(e) {
-    this.setState({
-      companyLocationLong: e.target.value
-    });
-    console.log(this.state.companyLocationLong);
-  }
-
-  handelChangearea(e) {
-    this.setState({
-      area: e.target.value
-    });
-    console.log(this.state.area);
-  }
-
-  handelChangewifi(e) {
-    this.setState({
-      wifi: e.target.value
-    });
-    console.log(this.state.wifi);
-  }
-  handelChangeautoorgeare(e) {
-    this.setState({
-      autoorgear: e.target.value
-    });
-    console.log(this.state.autoorgear);
-  }
-  handelChangepricePerHour(e) {
-    this.setState({
-      pricePerHour: e.target.value
-    });
-    console.log(this.state.pricePerHour);
-  }
-  handelChangecapacity(e) {
-    this.setState({
-      capacity: e.target.value
-    });
-    console.log(this.state.capacity);
-  }
+  };
 
   getId() {
     this.setState(
@@ -95,51 +46,9 @@ class Profile extends React.Component {
     );
   }
 
-  handelForigenId(e) {
-    this.setState({
-      user_id: e.target.user_id
-    });
-    console.log(this.state.user_id);
-  }
-
   componentDidMount() {
     // console.log(this.props.history.location.state.res)
     this.getId();
-  }
-
-  handelChangeaddress(e) {
-    this.setState({
-      address: e.target.value
-    });
-    console.log(this.state.address);
-  }
-
-  handelChangeyear(e) {
-    this.setState({
-      year: e.target.value
-    });
-    console.log(this.state.year);
-  }
-
-  handelChangemake(e) {
-    this.setState({
-      make: e.target.value
-    });
-    console.log(this.state.make);
-  }
-
-  handelChangemodel(e) {
-    this.setState({
-      model: e.target.value
-    });
-    console.log(this.state.model);
-  }
-
-  handelChangecarCode(e) {
-    this.setState({
-      carCode: e.target.value
-    });
-    console.log(this.state.carCode);
   }
   // sending car details to backend to save it in database and create a new car
   addCarData(e) {
@@ -185,139 +94,153 @@ class Profile extends React.Component {
               <h1 className="h3 mb-3font-weight-normal">List your car</h1>
 
               <input
+                name="user_id"
                 className="form-control"
-                onChange={this.handelForigenId.bind(this)}
+                onChange={this.handelChang}
                 type="Number"
                 value={this.state.user_id}
               />
 
               <div className="form-group">
                 <input
+                  name="address"
                   className="form-control"
                   type="text"
                   value={this.state.address}
                   placeholder="add adress"
-                  onChange={this.handelChangeaddress.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="area"
                   className="form-control"
                   type="text"
                   value={this.state.area}
                   placeholder="add area"
-                  onChange={this.handelChangearea.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="year"
                   className="form-control"
                   type="text"
                   value={this.state.year}
                   placeholder="add Year"
-                  onChange={this.handelChangeyear.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="make"
                   className="form-control"
                   type="text"
                   value={this.state.make}
                   placeholder="add Make"
-                  onChange={this.handelChangemake.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="model"
                   className="form-control"
                   type="text"
                   value={this.state.model}
                   placeholder="add Model"
-                  onChange={this.handelChangemodel.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="carCode"
                   className="form-control"
                   type="text"
                   value={this.state.carCode}
                   placeholder="Car Plate Number, should be unique. "
-                  onChange={this.handelChangecarCode.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="wifi"
                   className="form-control"
                   type="text"
                   value={this.state.wifi}
                   placeholder="there is any enternet inside the car ?"
-                  onChange={this.handelChangewifi.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="autoorgear"
                   className="form-control"
                   type="text"
                   value={this.state.autoorgear}
                   placeholder="enter car type (gear or outomatic ?)"
-                  onChange={this.handelChangeautoorgeare.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="pricePerHour"
                   className="form-control"
                   type="text"
                   value={this.state.pricePerHour}
                   placeholder="How match price per hour"
-                  onChange={this.handelChangepricePerHour.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="capacity"
                   className="form-control"
                   type="text"
                   value={this.state.capacity}
                   placeholder="what is the capacity for the car"
-                  onChange={this.handelChangecapacity.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="status"
                   className="form-control"
                   type="text"
                   value={this.state.status}
                   placeholder="Enter available for the first time"
-                  onChange={this.handelChangestatus.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="companyLocationLat"
                   className="form-control"
                   type="text"
                   value={this.state.companyLocationLat}
                   placeholder="ex. Lat: 32.5565"
-                  onChange={this.handelChangecompanyLocationLat.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 
               <div className="form-group">
                 <input
+                  name="companyLocationLong"
                   className="form-control"
                   type="text"
                   value={this.state.companyLocationLong}
                   placeholder="ex. Long: 32.5565"
-                  onChange={this.handelChangecompanyLocationLong.bind(this)}
+                  onChange={this.handelChang}
                 />
               </div>
 

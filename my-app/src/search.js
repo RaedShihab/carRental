@@ -16,11 +16,6 @@ class Search extends React.Component {
       dispalyCarList: false
     };
   }
-
-  handleClick() {
-    console.log("Hi");
-  }
-
   searchCarData(e) {
     e.preventDefault();
     var body = {
@@ -48,8 +43,6 @@ class Search extends React.Component {
 
   sendCarDetails(e, carObj) {
     e.preventDefault();
-    //console.log(carObj);
-    //console.log('oooooooooooookkkkkkkkkkkkkk')
     const body = carObj;
     fetch("http://localhost:3001/user/carDetails", {
       method: "POST",

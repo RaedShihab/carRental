@@ -36,7 +36,7 @@ class CarDetails extends React.Component {
       {
         CarDetails: this.props.history.location.state.res
       },
-      () => console.log(this.props.history.location.state.res, "////////")
+      () => console.log(this.props.history.location.state.res)
     );
   }
   componentDidMount() {

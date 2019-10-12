@@ -13,37 +13,12 @@ class Signup extends React.Component {
     };
   }
   //making handel chenges for all input texts:
-  handelChangefirstname(e) {
+  handelChange = e => {
+    let value = e.target.name;
     this.setState({
-      firstname: e.target.value
+      [value]: e.target.value
     });
-    console.log(this.state.firstname);
-  }
-  handelChangelastname(e) {
-    this.setState({
-      lastname: e.target.value
-    });
-    console.log(this.state.lastname);
-  }
-  handelChangepassword(e) {
-    this.setState({
-      password: e.target.value
-    });
-    console.log(this.state.password);
-  }
-  handelChangeemail(e) {
-    this.setState({
-      email: e.target.value
-    });
-    console.log(this.state.email);
-  }
-  handelChangephone(e) {
-    this.setState({
-      phonenumber: e.target.value
-    });
-    console.log(this.state.phonenumber);
-  }
-  // when click on register this function will be excute to user information to database
+  };
   sendToServer(e) {
     e.preventDefault();
     var body = {
@@ -82,50 +57,55 @@ class Signup extends React.Component {
                   <form class="form-signin">
                     <div class="form-label-group">
                       <input
+                        name="firstname"
                         className="form-control"
                         type="text"
                         value={this.state.firstname}
-                        onChange={this.handelChangefirstname.bind(this)}
+                        onChange={this.handelChange}
                       />
                       <label for="inputUserame">First Name</label>
                     </div>
 
                     <div class="form-label-group">
                       <input
+                        name="lastname"
                         className="form-control"
                         type="text"
                         value={this.state.lastname}
-                        onChange={this.handelChangelastname.bind(this)}
+                        onChange={this.handelChange}
                       />
                       <label for="inputEmail">Last Name</label>
                     </div>
 
                     <div class="form-label-group">
                       <input
+                        name="password"
                         className="form-control"
                         type="password"
                         value={this.state.password}
-                        onChange={this.handelChangepassword.bind(this)}
+                        onChange={this.handelChange}
                       />
                       <label for="inputPassword">Password</label>
                     </div>
 
                     <div class="form-label-group">
                       <input
+                        name="email"
                         className="form-control"
                         type="email"
                         value={this.state.email}
-                        onChange={this.handelChangeemail.bind(this)}
+                        onChange={this.handelChange}
                       />
                       <label for="inputEmail">Email</label>
                     </div>
 
                     <div class="form-label-group">
                       <input
+                        name="phonenumber"
                         className="form-control"
                         type="number"
                         value={this.state.phonenumber}
-                        onChange={this.handelChangephone.bind(this)}
+                        onChange={this.handelChange}
                       />
                       <label for="inputConfirmPassword">Phone Number</label>
                     </div>

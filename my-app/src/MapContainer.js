@@ -13,11 +13,7 @@ class MapContainer extends React.Component {
       showingInfoWindow: false, //Hides or the shows the infoWindow
       activeMarker: {}, //Shows the active marker upon click
       selectedPlace: {}, //Shows the infoWindow to the selected place upon a marker
-      carDetails: "",
-      obj: {
-        lat: -1.2884,
-        lng: 36.8233
-      }
+      carDetails: ""
     };
   }
   // recieve the location and update it every time rendering the component
